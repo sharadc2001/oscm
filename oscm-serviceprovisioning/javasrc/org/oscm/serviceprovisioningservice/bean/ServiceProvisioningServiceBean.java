@@ -3175,6 +3175,7 @@ public class ServiceProvisioningServiceBean
     }
 
     @Override
+    @TransactionAttribute(TransactionAttributeType.MANDATORY)
     @RolesAllowed("SERVICE_MANAGER")
     public VOServiceDetails savePriceModelForCustomer(VOServiceDetails service,
             VOPriceModel priceModel, VOOrganization customer)
