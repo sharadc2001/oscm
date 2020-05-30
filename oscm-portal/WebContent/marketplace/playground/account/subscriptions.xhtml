@@ -9,6 +9,7 @@
 
  <ui:define name="pageId">
   <c:set var="pageId" value="marketplace.account.subscriptions"/>
+  <c:set var="imgUrl" value="#{facesContext.externalContext.requestContextPath}/marketplace/img" />
   <c:set var="dirty" value="false"/>
  </ui:define>
 
@@ -49,14 +50,16 @@
                      styleClass="sortable table-hover table-bordered w-100"
                      headerCellClass="rowTitle sortable" columnClasses="wrapColumns">
 
-      <rich:column width="#{iconWidth}" styleClass="tableColumnCheckBox">
+      <rich:column headerClass="w-30px">
        <a4j:outputPanel styleClass="d-lg-none text-center">
         <rich:collapsibleSubTableToggler for="sbtbl"/>
        </a4j:outputPanel>
        <div class="d-none d-lg-block text-center">
-        <h:commandLink styleClass="editPenStyle" action="#{subscriptionsCtrl.showSubscriptionDetails(sub.subscriptionId, sub.subscriptionKey)}"
+        <h:commandLink styleClass="editPenStyle"
+                       action="#{subscriptionsCtrl.showSubscriptionDetails(sub.subscriptionId, sub.subscriptionKey)}"
                        render=":hiddenErrorPanel subListForm">
-         <i class="fa fa-pencil-square-o fa-2x"/>
+         <img src="#{imgUrl}/transparentPixel.png" id="editPaymentImage#{index}" class="editPen"
+                   onclick="if(AdmUtils.isNotDirtyOrConfirmed()){editPaymentInfo('#{paymentInfo.key}')}"/>
          <f:setPropertyActionListener target="#{subscriptionsCtrl.model.selectedSubscription}" value="#{sub}"/>
         </h:commandLink>
        </div>
@@ -188,6 +191,16 @@
        </rich:column>
       </rich:collapsibleSubTable>
      </rich:dataTable>
+     
+     <script type="text/javascript">
+$(document).ready(function () {
+  $('#sbtbl').DataTable({
+    "paging": true // false to disable pagination (or any other option)
+  });
+  $('.dataTables_length').addClass('bs-select');
+}); 
+
+</script> 
     </a4j:outputPanel>
    </h:form>
 
