@@ -15,34 +15,36 @@
   <rich:dataScroller id="#{pagerId}" renderIfSinglePage="false" render="#{render}" oncomplete="#{oncomplete}"
                      fastControls="hide" scrollerListener="#{tableState.actionListener}"
                      page="#{tableState.activePages[rich:clientId(pagerId)]}"
-                     maxPages="5" execute="#{pagerExecute}">
-   <f:facet name="first">
-    <i class="fa fa-fast-backward"/>
-   </f:facet>
-   <f:facet name="first_disabled">
-    <i class="fa fa-fast-backward"/>
-   </f:facet>
+                     maxPages="5" execute="#{pagerExecute}">                     
+   <div class="fa_icons_wrapper">                  
+    <f:facet name="first">
+     <i class="fa fa-fast-backward"/>
+    </f:facet>
+    <f:facet name="first_disabled">
+     <i class="fa fa-fast-backward"/>
+    </f:facet>
 
-   <f:facet name="previous">
-    <i class="fa fa-step-backward"/>
-   </f:facet>
-   <f:facet name="previous_disabled">
-    <i class="fa fa-step-backward"/>
-   </f:facet>
+    <f:facet name="previous">
+     <i class="fa fa-step-backward"/>
+    </f:facet>
+    <f:facet name="previous_disabled">
+     <i class="fa fa-step-backward"/>
+    </f:facet>
 
-   <f:facet name="next">
-    <i class="fa fa-step-forward"/>
-   </f:facet>
-   <f:facet name="next_disabled">
-    <i class="fa fa-step-forward"/>
-   </f:facet>
+    <f:facet name="next">
+     <i class="fa fa-step-forward"/>
+    </f:facet>
+    <f:facet name="next_disabled">
+     <i class="fa fa-step-forward"/>
+    </f:facet>
 
-   <f:facet name="last">
-    <i class="fa fa-fast-forward"/>
-   </f:facet>
-   <f:facet name="last_disabled">
-    <i class="fa fa-fast-forward"/>
-   </f:facet>
+    <f:facet name="last">
+     <i class="fa fa-fast-forward"/>
+    </f:facet>
+    <f:facet name="last_disabled">
+     <i class="fa fa-fast-forward"/>
+    </f:facet>
+   </div>
   </rich:dataScroller>
 
   <a4j:outputPanel id="#{pagerId}Panel">

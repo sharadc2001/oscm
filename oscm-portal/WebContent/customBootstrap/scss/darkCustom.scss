@@ -10,5 +10,8 @@ html, body {
   overflow-x: hidden;
 } 
 
+.fa_icons_wrapper .fa {
+  color: $secondary;
+}
 /* -------end customization-------- *//* finally, import Bootstrap to set the changes! */
 @import "../../bootstrap/scss/bootstrap"; 
