@@ -39,7 +39,7 @@
       </a4j:jsFunction>
     </h:form>
 
-    <a4j:outputPanel id="all" styleClass="row" layout="block">
+    <div id="all" class="row">
       <div class="my-2 p-3 bg-light col">
         <mp:outputStep value="#{msg['marketplace.account.profile.title']}"/>
 
@@ -311,7 +311,7 @@
       </script>
 
       <mp:reloginConfirmPanel/>
-    </a4j:outputPanel>
+    </div>
 
     <link href="#{facesContext.externalContext.requestContextPath}/css/dataTable.css" rel="stylesheet"
           type="text/css" media="all"/>
