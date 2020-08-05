@@ -54,9 +54,9 @@
              aria-orientation="vertical">
           <a class="list-group-item list-group-item-secondary list-group-item-action active" id="tabIndex"
              data-toggle="tab" href="#index" role="tab" aria-controls="index">Home</a>
-          <a class="list-group-item list-group-item-secondary list-group-item-action active" id="tabProfile"
+          <a class="list-group-item list-group-item-secondary list-group-item-action" id="tabProfile"
              data-toggle="tab" href="#profile" role="tab" aria-controls="profile">Profile</a>
-          <a class="list-group-item list-group-item-secondary list-group-item-action active" id="tabSettings"
+          <a class="list-group-item list-group-item-secondary list-group-item-action" id="tabSettings"
              data-toggle="tab" href="#settings" role="tab" aria-controls="settings">Settings</a>
         </div>
       </div>
@@ -348,7 +348,7 @@
             </a4j:outputPanel>
           </h:form>
         </div>
-        <div id="profile" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div id="profile" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-profile-tab">
           <h:form id="profileForm">
             <h:form id="validateCurrentUserRolesForm">
               <a4j:jsFunction name="validateCurrentUserRoles" data="#{organizationBean.currentUserRolesChanged}"
@@ -669,7 +669,7 @@
             <script>AdmUtils.sessionTab('#{sessionBean.selectedTab}', 'nav-tab');</script>
           </h:form>
         </div>
-        <div id="settings" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-settings-tab">
+        <div id="settings" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-settings-tab">
           <h:form id="settingsForm">...</h:form>
         </div>
       </div>
