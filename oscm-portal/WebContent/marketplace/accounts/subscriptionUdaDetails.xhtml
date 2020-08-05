@@ -1,0 +1,21 @@
+<!-- Copyright FUJITSU LIMITED 2020-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:adm="http://www.fujitsu.com/global/services/software/interstage">
+
+  <!-- add "Your organization details": Subcription UDAs  -->
+  <ui:repeat id="subscriptionUdaRepeat" value="#{inputList}" var="subscriptionUda" varStatus="v">
+    <adm:formInput id="subscriptionUda#{v.index}" label="#{subscriptionUda.udaNameToShow}"
+                   required="#{subscriptionUda.inputMandatory}" value="#{subscriptionUda.udaValue}"
+                   converterId="trimToNotNullConverter" maxlength="#{appBean.descriptionLen}"
+                   rendered="#{not subscriptionUda.inputEncrypted}" inputStyle="form-control"
+                   disabled="#{not (subscriptionUda.labelRendered) or (udasReadOnly)}"/>
+
+    <adm:formSecret id="secretSubscriptionUda#{v.index}" label="#{subscriptionUda.udaNameToShow}"
+                    required="#{subscriptionUda.inputMandatory}" value="#{subscriptionUda.passwordValueToStore}"
+                    converterId="trimToNotNullConverter" maxlength="#{appBean.descriptionLen}"
+                    rendered="#{subscriptionUda.inputEncrypted}" inputStyle="form-control"
+                    disabled="#{not (subscriptionUda.labelRendered) or (udasReadOnly)}"/>
+  </ui:repeat>
+  <adm:spacer height="20"/>
+</ui:composition>

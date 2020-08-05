@@ -1,0 +1,15 @@
+<!-- Copyright FUJITSU LIMITED 2020 -->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:mp="http://www.fujitsu.com/global/services/software/interstage/marketplace"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+  <mp:pixelline/>
+
+  <ui:insert name="dialogDescription"/>
+  <ui:include src="/marketplace/account/errorMessages.xhtml"/>
+  <a4j:outputPanel id="paymentInfoGrid" layout="block">
+    <iframe id="payment_registration" name="payment_registration" width="auto" height="300"
+            src="#{paymentInfoBean.paymentRegistrationLink}" frameborder="0" scrolling="auto"/>
+  </a4j:outputPanel>
+</ui:composition>
