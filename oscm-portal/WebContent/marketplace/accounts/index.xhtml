@@ -14,7 +14,6 @@
 
   <div class="row">
     <ui:define name="aside">
-      <div class="col-3">
         <div class="list-group list-group-vertical-sm text-center" id="nav-account" role="tablist"
              aria-orientation="vertical">
           <a class="list-group-item list-group-item-secondary list-group-item-action active" id="tabIndex"
@@ -24,10 +23,8 @@
           <a class="list-group-item list-group-item-secondary list-group-item-action active" id="tabSettings"
              data-toggle="tab" href="#settings" role="tab" aria-controls="settings">Settings</a>
         </div>
-      </div>
     </ui:define>
 
-    <div class="col-9">
       <div class="tab-content" id="accountTabContent">
         <div id="index" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-index-tab">
           <h:form id="indexForm">
@@ -582,7 +579,5 @@
         </div>
       </div>
     </div>
-
-  </div>
 
 </ui:composition>
