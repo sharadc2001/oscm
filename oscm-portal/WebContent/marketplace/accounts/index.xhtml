@@ -25,9 +25,9 @@
       </div>
     </ui:define>
 
+    <ui:define name="contents">
     <div class="tab-content" id="accountTabContent">
       <div id="index" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-index-tab">
-        <ui:define name="contents">
           <h:form id="indexForm">
             <a4j:outputPanel id="all" layout="block">
               <div class="row mt-2">
@@ -234,10 +234,8 @@
               </div>
             </a4j:outputPanel>
           </h:form>
-        </ui:define>
       </div>
       <div id="profile" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-profile-tab">
-          <ui:define name="contents">
             <h:form id="profileForm">
             <h:form id="validateCurrentUserRolesForm">
               <a4j:jsFunction name="validateCurrentUserRoles" data="#{organizationBean.currentUserRolesChanged}"
@@ -558,12 +556,12 @@
 
             <script>AdmUtils.sessionTab('#{sessionBean.selectedTab}', 'nav-tab');</script>
             </h:form>
-          </ui:define>
       </div>
       <div id="settings" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-settings-tab">
-        <ui:define name="contents"><h:form id="settingsForm">...</h:form></ui:define>
+        <h:form id="settingsForm">...</h:form>
       </div>
     </div>
+    </ui:define>
   </div>
 
 </ui:composition>
