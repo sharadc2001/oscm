@@ -17,11 +17,6 @@
   </ui:include>
 </h:head>
 
-<ui:define name="pageId">
-  <c:set var="pageId" value="marketplace.account"/>
-  <c:set var="imgUrl" value="#{facesContext.externalContext.requestContextPath}/marketplace/img"/>
-</ui:define>
-
 <h:body>
   <rich:jQuery selector="document" query="ready(function(){AdmUtils.initFocus();AdmUtils.setUIElements()});"/>
   <c:if test="#{not empty firstErrorElement or not empty focusElement}">
@@ -48,27 +43,6 @@
     <!-- body -->
     <div class="container-fluid navbar-margin">
 
-      <div class="tab-content" id="breadcrumbsTabContent">
-        <div id="index-breadcrumbs" class="tab-pane fade show active pt-4" role="tabpanel"
-             aria-labelledby="nav-index-tab">
-          <adm:initialize initializingMethod="#{organizationBean.initialize}"/>
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="profile-breadcrumbs" class="tab-pane fade show active pt-4" role="tabpanel"
-             aria-labelledby="nav-index-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account" link="/marketplace/account/index.jsf"/>
-            <mp:crumb labelPageId="#{pageId}"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="settings-breadcrumbs" class="tab-pane fade show active pt-4" role="tabpanel"
-             aria-labelledby="nav-index-tab">
-        </div>
-      </div>
-
-
       <div class="row">
         <div class="aside pr-md-3"></div>
         <div class="list-group list-group-vertical-sm text-center" id="nav-account" role="tablist"
@@ -79,6 +53,28 @@
              data-toggle="tab" href="#profile, #profile-breadcrumbs" role="tab" aria-controls="profile">Profile</a>
           <a class="list-group-item list-group-item-secondary list-group-item-action" id="tabSettings"
              data-toggle="tab" href="#settings, #settings-breadcrumbs" role="tab" aria-controls="settings">Settings</a>
+        </div>
+      </div>
+
+      <div class="tab-content" id="breadcrumbsTabContent">
+        <div id="index-breadcrumbs" class="tab-pane fade show active pt-4" role="tabpanel"
+             aria-labelledby="nav-index-tab">
+          <adm:initialize initializingMethod="#{organizationBean.initialize}"/>
+          <mp:bootstrapBreadcrumbs menu="#{true}">
+            <mp:crumb labelPageId="marketplace.account"/>
+          </mp:bootstrapBreadcrumbs>
+        </div>
+        <div id="profile-breadcrumbs" class="tab-pane fade show active pt-4" role="tabpanel"
+             aria-labelledby="nav-index-tab">
+          <c:set var="pageId" value="marketplace.account.profile"/>
+
+          <mp:bootstrapBreadcrumbs menu="#{true}">
+            <mp:crumb labelPageId="marketplace.account" link="/marketplace/account/index.jsf"/>
+            <mp:crumb labelPageId="#{pageId}"/>
+          </mp:bootstrapBreadcrumbs>
+        </div>
+        <div id="settings-breadcrumbs" class="tab-pane fade show active pt-4" role="tabpanel"
+             aria-labelledby="nav-index-tab">
         </div>
       </div>
 
