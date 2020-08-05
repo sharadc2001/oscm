@@ -27,7 +27,7 @@
 
       <div class="tab-content" id="accountTabContent">
         <div id="index" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-index-tab">
-          <h:form id="indexForm">
+          <h:form>
             <ui:define name="breadcrumbs">
               <mp:bootstrapBreadcrumbs menu="#{true}">
                 <mp:crumb labelPageId="marketplace.account"/>
@@ -243,7 +243,7 @@
           </h:form>
         </div>
         <div id="profile" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-profile-tab">
-          <h:form id="profileForm">
+          <h:form>
             <ui:define name="breadcrumbs">
               <adm:initialize initializingMethod="#{organizationBean.initialize}"/>
               <mp:bootstrapBreadcrumbs menu="#{true}">
@@ -575,7 +575,7 @@
           </h:form>
         </div>
         <div id="settings" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-settings-tab">
-          <h:form id="settingsForm">...</h:form>
+          <h:form>...</h:form>
         </div>
       </div>
     </div>
