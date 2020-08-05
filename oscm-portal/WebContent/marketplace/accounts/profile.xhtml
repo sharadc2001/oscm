@@ -7,30 +7,6 @@
                 xmlns:mp="http://www.fujitsu.com/global/services/software/interstage/marketplace"
                 xmlns:rich="http://richfaces.org/rich" template="../templates/mainBootstrap.xhtml">
 
-  <ui:define name="pageId">
-    <c:set var="pageId" value="marketplace.account.profile"/>
-    <c:set var="focusElement" value="salutation"/>
-  </ui:define>
-
- <ui:define name="breadcrumbs">
-  <adm:initialize initializingMethod="#{organizationBean.initialize}"/>
-  <mp:bootstrapBreadcrumbs menu="#{true}">
-   <mp:crumb labelPageId="marketplace.account" link="/marketplace/account/index.jsf"/>
-   <mp:crumb labelPageId="#{pageId}"/>
-  </mp:bootstrapBreadcrumbs>
- </ui:define>
-
-  <ui:define name="aside">
-    <mp:bootstrapNavigationMenu bean="#{accountNavigationBean}" selected="marketplace.account.profile.title"/>
-  </ui:define>
-
-  <ui:define name="contentstitle">
-    <a4j:outputPanel layout="block" styleClass="contentstitle indent1col clearfix">
-      <br/>
-    </a4j:outputPanel>
-  </ui:define>
-
-  <ui:define name="contents">
     <h:form id="validateCurrentUserRolesForm">
       <a4j:jsFunction name="validateCurrentUserRoles" data="#{organizationBean.currentUserRolesChanged}"
                       oncomplete="if(event.data==true){#{rich:component('reLogining')}.show();}
@@ -304,12 +280,6 @@
         </h:form>
       </div>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", function(){
-          $(this).scrollTop(0);
-        });
-      </script>
-
       <mp:reloginConfirmPanel/>
     </div>
 
@@ -318,5 +288,4 @@
 
     <script>AdmUtils.sessionTab('#{sessionBean.selectedTab}', 'nav-tab');</script>
 
-  </ui:define>
 </ui:composition>
