@@ -17,7 +17,7 @@
         <!--  Header Row -->
         <h:outputLink id="link0" value="#" data-toggle="tab" href="&num;#{msg[first]}" role="tab"
                       aria-controls="#{msg[first]}"
-                      styleClass="#{menuHeaderStyle} list-group-item list-group-item-action active #{selected eq first? 'text-primary' : 'text-light'}"
+                      styleClass="#{menuHeaderStyle} emptyClass list-group-item list-group-item-action active #{selected eq first? 'text-primary' : 'text-light'}"
                       onclick="if(AdmUtils.isNotDirtyOrConfirmed()){AdmUtils.showProgress(true);location.href='#{bean['link'][0]}';return true;}else{return false;}">
           <h3 id="menu0">
             <h:outputText value="#{msg[first]}"/>
