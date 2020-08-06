@@ -39,9 +39,13 @@
       <ui:param name="canCloseLogin" value="#{not isMplRestricted}"/>
     </ui:include>
 
-    <mp:bootstrapBreadcrumbs menu="#{true}">
-      <mp:crumb labelPageId="marketplace.account"/>
-    </mp:bootstrapBreadcrumbs>
+    <div class="tab-content" id="breadcrumbsTabContent">
+      <div id="index-bredcrumbs" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-index-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb labelPageId="marketplace.account"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+    </div>
 
     <!-- body -->
     <div class="container-fluid navbar-margin">
@@ -51,11 +55,11 @@
         <div class="list-group list-group-vertical-sm text-center" id="nav-account" role="tablist"
              aria-orientation="vertical">
           <a class="list-group-item list-group-item-secondary list-group-item-action active" id="tabIndex"
-             data-toggle="tab" href="#index" role="tab" aria-controls="index">#{marketplace.account}</a>
+             data-toggle="tab" href="#index, #index-bredcrumbs" role="tab" aria-controls="index">#{msg['navigation.home']}</a>
           <a class="list-group-item list-group-item-secondary list-group-item-action" id="tabProfile"
-             data-toggle="tab" href="#profile" role="tab" aria-controls="profile">#{marketplace.account.profile}</a>
+             data-toggle="tab" href="#profile" role="tab" aria-controls="profile">#{msg['marketplace.account.profile.title']}</a>
           <a class="list-group-item list-group-item-secondary list-group-item-action" id="tabPayments"
-             data-toggle="tab" href="#payments" role="tab" aria-controls="payments">#{marketplace.account.payments}</a>
+             data-toggle="tab" href="#payments" role="tab" aria-controls="payments">#{msg['marketplace.account.payments.title']}</a>
         </div>
       </div>
 
@@ -200,6 +204,7 @@
     });
 
     AdmUtils.sortSelect();
+
 
 
     </script>
