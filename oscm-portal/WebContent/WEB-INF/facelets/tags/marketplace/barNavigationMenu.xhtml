@@ -15,10 +15,10 @@
            role="tablist"
            aria-orientation="vertical">
         <!--  Header Row -->
-        <h:outputLink id="link0" value="#" data-toggle="tab" href="&num;#{msg[first]}" role="tab"
+        <h:outputLink id="link0" data-toggle="tab" href="#" role="tab"
                       aria-controls="#{msg[first]}"
                       styleClass="#{menuHeaderStyle} emptyClass list-group-item list-group-item-action active #{selected eq first? 'text-primary' : 'text-light'}"
-                      onclick="if(AdmUtils.isNotDirtyOrConfirmed()){AdmUtils.showProgress(true);location.href='#{bean['link'][0]}';return true;}else{return false;}">
+                      onclick="AdmUtils.changeContent('index', 'breadcrumbIndex', 'sidebarCollapse')">
           <h3 id="menu0">
             <h:outputText value="#{msg[first]}"/>
           </h3>
@@ -27,13 +27,13 @@
         <!--  Menu Rows -->
         <c:forEach items="#{bean['title']}" var="key" varStatus="index">
           <c:if test="#{not(first eq key)}">
-            <h:outputLink id="link#{index.index}" role="tab" href="javascript:void(0);"
+            <a id="link#{index.index}" role="tab" href="#"
                class="#{menuItemStyle} list-group-item list-group-item-action #{selected eq key? 'text-primary' : ''}"
                onclick="AdmUtils.changeContent('content#{index.index}', 'breadcrumb#{index.index}', 'sidebarCollapse')">
               <h4 id="menu#{index.index}">
                 <h:outputText value="#{msg[key]}"/>
               </h4>
-            </h:outputLink>
+            </a>
           </c:if>
         </c:forEach>
       </div>
