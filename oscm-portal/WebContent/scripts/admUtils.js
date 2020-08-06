@@ -2318,3 +2318,13 @@ AdmUtils.sessionTab = function(tabId, navId) {
      $(tabSession).tab('show');
   });
 }
+
+AdmUtils.changeContent = function(contentID, breadcrumbID, navId) {
+ content = document.getElementById(contentID);
+ breadcrumb = document.getElementById(breadcrumbID);
+ nav = document.getElementById(navId);
+ $(nav).ready(function(){
+   $(content).attr('class','active')
+   $(breadcrumb).attr('class','active')
+  });
+}
