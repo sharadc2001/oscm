@@ -2320,6 +2320,10 @@ AdmUtils.sessionTab = function(tabId, navId) {
 }
 
 AdmUtils.changeContent = function(contentId, breadcrumbId, navId) {
+ y = document.getElementsByClassName("emptyClass active");
+ for (i = 0; i < y.length; i++) {
+   y[i].classList.remove("show active");
+ }
  content = document.getElementById(contentId);
  breadcrumb = document.getElementById(breadcrumbId);
  nav = document.getElementById(navId);
