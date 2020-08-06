@@ -10,7 +10,7 @@
     <c:set var="sortIconAscending" value="/marketplace/img/transparentPixel.png?id=sortAscending"/>
     <c:set var="sortIconDescending" value="/marketplace/img/transparentPixel.png?id=sortDescending"/>
 
-    <a4j:outputPanel id="all" styleClass="row" layout="block">
+    <a4j:outputPanel id="usersPanel" styleClass="row" layout="block">
       <div class="mt-2 p-3 bg-light col">
         <ui:fragment rendered="#{empty appBean.hiddenUIElements['organization.edit.userProfile']}">
           <mp:outputStep value="#{msg['marketplace.account.users.title.management']}"/>
