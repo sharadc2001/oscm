@@ -2323,7 +2323,6 @@ AdmUtils.changeContent = function(contentId, breadcrumbId, navId) {
  y = document.getElementsByClassName("emptyClass active");
  for (i = 0; i < y.length; i++) {
    y[i].classList.remove("active");
-   y[i].classList.remove("show");
  }
  content = document.getElementById(contentId);
  breadcrumb = document.getElementById(breadcrumbId);
