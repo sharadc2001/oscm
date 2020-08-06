@@ -2319,11 +2319,10 @@ AdmUtils.sessionTab = function(tabId, navId) {
   });
 }
 
-AdmUtils.changeContent = function(contentID, breadcrumbID, navId) {
- content = document.getElementById(contentID);
- breadcrumb = document.getElementById(breadcrumbID);
+AdmUtils.changeContent = function(contentId, breadcrumbId, navId) {
+ content = document.getElementById(contentId);
+ breadcrumb = document.getElementById(breadcrumbId);
  nav = document.getElementById(navId);
- alert(contentID + ", " + breadcrumbID + ", " + navId);
  $(nav).ready(function(){
    $(content).attr('class','show active')
    $(breadcrumb).attr('class','show active')
