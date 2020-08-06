@@ -43,62 +43,64 @@
     <div class="container-fluid navbar-margin">
 
       <div class="tab-content" id="breadcrumsTabContent">
-        <div id="breadcrumbIndex" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-index-tab">
+        <div id="breadcrumbIndex" class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-index-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
             <mp:crumb labelPageId="marketplace.account"/>
           </mp:bootstrapBreadcrumbs>
         </div>
-        <div id="breadcrumb1" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div id="breadcrumb1" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
             <mp:crumb labelPageId="marketplace.account"/>
             <mp:crumb labelPageId="marketplace.account.profile"/>
           </mp:bootstrapBreadcrumbs>
         </div>
-        <div id="breadcrumb2" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-payments-tab">
+        <div id="breadcrumb2" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-payments-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
             <mp:crumb labelPageId="marketplace.account"/>
             <mp:crumb labelPageId="marketplace.account.payments"/>
           </mp:bootstrapBreadcrumbs>
         </div>
-        <div id="breadcrumb3" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-subscriptions-tab">
+        <div id="breadcrumb3" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-subscriptions-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
             <mp:crumb labelPageId="marketplace.account"/>
             <mp:crumb labelPageId="marketplace.account.subscriptions"/>
           </mp:bootstrapBreadcrumbs>
         </div>
-        <div id="breadcrumb4" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-users-tab">
+        <div id="breadcrumb4" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-users-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
             <mp:crumb labelPageId="marketplace.account"/>
             <mp:crumb labelPageId="marketplace.account.users"/>
           </mp:bootstrapBreadcrumbs>
         </div>
-        <div id="breadcrumb5" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-units-tab">
+        <div id="breadcrumb5" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-units-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
             <mp:crumb labelPageId="marketplace.account"/>
             <mp:crumb labelPageId="marketplace.account.units"/>
           </mp:bootstrapBreadcrumbs>
         </div>
-        <div id="breadcrumb6" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-reports-tab">
+        <div id="breadcrumb6" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-reports-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
             <mp:crumb labelPageId="marketplace.account"/>
             <mp:crumb labelPageId="marketplace.account.reports"/>
           </mp:bootstrapBreadcrumbs>
         </div>
-        <div id="breadcrumb7" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-processes-tab">
+        <div id="breadcrumb7" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-processes-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
             <mp:crumb labelPageId="marketplace.account"/>
             <mp:crumb labelPageId="marketplace.account.processes"/>
           </mp:bootstrapBreadcrumbs>
         </div>
-        <div id="breadcrumb8" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-operations-tab">
+        <div id="breadcrumb8" class="tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
             <mp:crumb labelPageId="marketplace.account"/>
             <mp:crumb labelPageId="marketplace.account.operations"/>
           </mp:bootstrapBreadcrumbs>
         </div>
       </div>
-      
-      <mp:barNavigationMenu bean="#{accountNavigationBean}"/>
+
+      <div class="aside pr-md-3">
+        <mp:barNavigationMenu bean="#{accountNavigationBean}"/>
+      </div>
 
       <a4j:outputPanel layout="block" styleClass="box" rendered="#{isSingleContentPage}">
 
@@ -259,6 +261,7 @@
     });
 
     AdmUtils.sortSelect();
+
 
     </script>
     <h:outputText escape="false" value="#{trackingCodeCtrl.trackingCodeForCurrentMarketplace}"/>
