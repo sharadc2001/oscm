@@ -11,10 +11,12 @@
 
   <div class="custom-collapse mt-0">
     <div id="sidebar-wrapper">
-      <div class="list-group collapse list-group-vertical-sm navbar-collapse text-center" id="sidebarCollapse" role="tablist"
+      <div class="list-group collapse list-group-vertical-sm navbar-collapse text-center" id="sidebarCollapse"
+           role="tablist"
            aria-orientation="vertical">
         <!--  Header Row -->
-        <h:outputLink id="link0" value="#" data-toggle="tab" href="&num;#{msg[first]}" role="tab" aria-controls="#{msg[first]}"
+        <h:outputLink id="link0" value="#" data-toggle="tab" href="&num;#{msg[first]}" role="tab"
+                      aria-controls="#{msg[first]}"
                       styleClass="#{menuHeaderStyle} list-group-item list-group-item-action active #{selected eq first? 'text-primary' : 'text-light'}"
                       onclick="if(AdmUtils.isNotDirtyOrConfirmed()){AdmUtils.showProgress(true);location.href='#{bean['link'][0]}';return true;}else{return false;}">
           <h3 id="menu0">
@@ -25,12 +27,12 @@
         <!--  Menu Rows -->
         <c:forEach items="#{bean['title']}" var="key" varStatus="index">
           <c:if test="#{not(first eq key)}">
-            <h:outputLink id="link#{index.index}" value="#" data-toggle="tab" href="&num;#{msg[key]}" role="tab" aria-controls="#{msg[key]}"
-                          styleClass="#{menuItemStyle} list-group-item list-group-item-action #{selected eq key? 'text-primary' : ''}">
+            <a id="link#{index.index}" data-toggle="tab" href="&num;#{msg[key]}" role="tab" aria-controls="#{msg[key]}"
+               class="#{menuItemStyle} list-group-item list-group-item-action #{selected eq key? 'text-primary' : ''}">
               <h4 id="menu#{index.index}">
                 <h:outputText value="#{msg[key]}"/>
               </h4>
-            </h:outputLink>
+            </a>
           </c:if>
         </c:forEach>
       </div>
