@@ -42,6 +42,10 @@
     <!-- body -->
     <div class="container-fluid navbar-margin">
 
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb labelPageId="marketplace.account"/>
+      </mp:bootstrapBreadcrumbs>
+      
       <mp:barNavigationMenu bean="#{accountNavigationBean}"/>
 
       <a4j:outputPanel layout="block" styleClass="box" rendered="#{isSingleContentPage}">
