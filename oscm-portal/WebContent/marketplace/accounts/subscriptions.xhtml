@@ -5,25 +5,8 @@
                 xmlns:a4j="http://richfaces.org/a4j" xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:adm="http://www.fujitsu.com/global/services/software/interstage"
                 xmlns:mp="http://www.fujitsu.com/global/services/software/interstage/marketplace"
-                xmlns:rich="http://richfaces.org/rich" template="../templates/mainBootstrap.xhtml">
+                xmlns:rich="http://richfaces.org/rich">
 
- <ui:define name="pageId">
-  <c:set var="pageId" value="marketplace.account.subscriptions"/>
-  <c:set var="dirty" value="false"/>
- </ui:define>
-
- <ui:define name="breadcrumbs">
-  <mp:bootstrapBreadcrumbs menu="#{true}">
-   <mp:crumb labelPageId="marketplace.account" link="/marketplace/account/index.jsf"/>
-   <mp:crumb labelPageId="#{pageId}"/>
-  </mp:bootstrapBreadcrumbs>
- </ui:define>
-
- <ui:define name="aside">
-  <mp:bootstrapNavigationMenu bean="#{accountNavigationBean}" selected="marketplace.account.subscriptions.title"/>
- </ui:define>
-
- <ui:define name="contents">
   <a4j:queue name="accountSubscriptionsQueue" requestDelay="400" ignoreDupResponses="true"/>
   <c:set var="sortIconAscending" value="/marketplace/img/transparentPixel.png?id=sortAscending"/>
   <c:set var="sortIconDescending" value="/marketplace/img/transparentPixel.png?id=sortDescending"/>
@@ -201,5 +184,4 @@
 
   <link href="#{facesContext.externalContext.requestContextPath}/css/dataTable.css" rel="stylesheet"
         type="text/css" media="all"/>
- </ui:define>
 </ui:composition>

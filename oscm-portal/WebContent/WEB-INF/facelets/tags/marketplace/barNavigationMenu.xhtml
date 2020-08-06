@@ -27,7 +27,7 @@
         <!--  Menu Rows -->
         <c:forEach items="#{bean['title']}" var="key" varStatus="index">
           <c:if test="#{not(first eq key)}">
-            <a id="link#{index.index}" data-toggle="tab" href="&num;#{msg[key]}" role="tab" aria-controls="#{msg[key]}"
+            <a id="link#{index.index}" data-toggle="tab" href="&num;menu#{index.index}" role="tab" aria-controls="menu#{index.index}"
                class="#{menuItemStyle} list-group-item list-group-item-action #{selected eq key? 'text-primary' : ''}">
               <h4 id="menu#{index.index}">
                 <h:outputText value="#{msg[key]}"/>

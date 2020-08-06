@@ -5,32 +5,8 @@
                 xmlns:rich="http://richfaces.org/rich" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
                 xmlns:adm="http://www.fujitsu.com/global/services/software/interstage"
                 xmlns:mp="http://www.fujitsu.com/global/services/software/interstage/marketplace"
-                xmlns:a4j="http://richfaces.org/a4j" template="../templates/mainBootstrap.xhtml">
+                xmlns:a4j="http://richfaces.org/a4j">
 
-  <ui:define name="pageId">
-    <c:set var="pageId" value="marketplace.account.users"/>
-    <c:set var="imgUrl" value="#{facesContext.externalContext.requestContextPath}/marketplace/img"/>
-    <c:set var="dirty" value="false"/>
-  </ui:define>
-
-  <ui:define name="breadcrumbs">
-    <mp:bootstrapBreadcrumbs menu="#{true}">
-      <mp:crumb labelPageId="marketplace.account" link="/marketplace/account/index.jsf"/>
-      <mp:crumb labelPageId="#{pageId}"/>
-    </mp:bootstrapBreadcrumbs>
-  </ui:define>
-
-  <ui:define name="contentstitle">
-    <a4j:outputPanel layout="block" styleClass="contentstitle indent1col clearfix">
-      <br/>
-    </a4j:outputPanel>
-  </ui:define>
-
-  <ui:define name="aside">
-    <mp:bootstrapNavigationMenu bean="#{accountNavigationBean}" selected="marketplace.account.users.title"/>
-  </ui:define>
-
-  <ui:define name="contents">
     <c:set var="sortIconAscending" value="/marketplace/img/transparentPixel.png?id=sortAscending"/>
     <c:set var="sortIconDescending" value="/marketplace/img/transparentPixel.png?id=sortDescending"/>
 
@@ -281,5 +257,4 @@
           type="text/css" media="all"/>
 
     <script>AdmUtils.sessionTab('#{sessionBean.selectedTab}', 'nav-tab');</script>
-  </ui:define>
 </ui:composition>

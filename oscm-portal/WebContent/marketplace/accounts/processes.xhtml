@@ -4,34 +4,10 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:rich="http://richfaces.org/rich" xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" xmlns:a4j="http://richfaces.org/a4j"
-                xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions" template="../templates/mainBootstrap.xhtml"
+                xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
                 xmlns:adm="http://www.fujitsu.com/global/services/software/interstage"
                 xmlns:mp="http://www.fujitsu.com/global/services/software/interstage/marketplace">
 
- <ui:define name="pageId">
-  <c:set var="pageId" value="marketplace.account.processes"/>
-  <c:set var="dirty" value="false"/>
-  <c:set var="imgUrl" value="#{facesContext.externalContext.requestContextPath}/marketplace/img"/>
- </ui:define>
-
- <ui:define name="breadcrumbs">
-  <mp:bootstrapBreadcrumbs menu="#{true}">
-   <mp:crumb labelPageId="marketplace.account" link="/marketplace/account/index.jsf"/>
-   <mp:crumb labelPageId="marketplace.account.processes"/>
-  </mp:bootstrapBreadcrumbs>
- </ui:define>
-
- <ui:define name="aside">
-  <mp:bootstrapNavigationMenu bean="#{accountNavigationBean}" selected="marketplace.account.processes.title"/>
- </ui:define>
-
- <ui:define name="contentstitle">
-  <a4j:outputPanel layout="block" styleClass="contentstitle indent1col clearfix">
-   <br/>
-  </a4j:outputPanel>
- </ui:define>
-
- <ui:define name="contents">
   <!-- include popup -->
   <a4j:outputPanel>
    <ui:include src="/marketplace/account/manageTrigger.xhtml">
@@ -99,7 +75,7 @@
                          sortMode="single">
 
           <rich:column headerClass="w-30px">
-           <img src="#{imgUrl}/transparentPixel.png" id="editProcessTriggerImage" class="editPen"
+           <img src="#{imgUrl}/transparentPixel.png" id="editProcessTriggerImage" class="editPen" alt="editPen"
                 onclick="if(AdmUtils.isNotDirtyOrConfirmed()){selectProcessItem(#{triggerDefinition.key});}"/>
           </rich:column>
 
@@ -288,5 +264,4 @@
     </div>
    </div>
   </div>
- </ui:define>
 </ui:composition>

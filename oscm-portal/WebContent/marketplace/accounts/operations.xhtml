@@ -5,34 +5,11 @@
                 xmlns:mp="http://www.fujitsu.com/global/services/software/interstage/marketplace"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" xmlns:a4j="http://richfaces.org/a4j"
                 xmlns:adm="http://www.fujitsu.com/global/services/software/interstage"
-                xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions" template="../templates/mainBootstrap.xhtml">
+                xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions">
 
  <a4j:queue name="marketplaceAccountOperations" ignoreDupResponses="true"/>
 
- <ui:define name="pageId">
-  <c:set var="pageId" value="marketplace.account.operations"/>
-  <c:set var="dirty" value="false"/>
-  <c:set var="imgUrl" value="#{facesContext.externalContext.requestContextPath}/marketplace/img"/>
- </ui:define>
 
- <ui:define name="breadcrumbs">
-  <mp:bootstrapBreadcrumbs menu="#{true}">
-   <mp:crumb labelPageId="marketplace.account" link="/marketplace/account/index.jsf"/>
-   <mp:crumb labelPageId="#{pageId}"/>
-  </mp:bootstrapBreadcrumbs>
- </ui:define>
-
- <ui:define name="contentstitle">
-  <a4j:outputPanel layout="block" styleClass="contentstitle indent1col clearfix">
-   <br/>
-  </a4j:outputPanel>
- </ui:define>
-
- <ui:define name="aside">
-  <mp:bootstrapNavigationMenu bean="#{accountNavigationBean}" selected="marketplace.account.operations.title"/>
- </ui:define>
-
- <ui:define name="contents">
   <a4j:outputPanel id="all" styleClass="row" layout="block">
    <div class="p-3 mt-2 bg-light col">
     <h:panelGroup id="operationsArea" rendered="true" layout="block">
@@ -163,5 +140,4 @@
 
    </div>
   </a4j:outputPanel>
- </ui:define>
 </ui:composition>
