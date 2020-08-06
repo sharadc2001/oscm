@@ -42,10 +42,6 @@
     <!-- body -->
     <div class="container-fluid navbar-margin">
 
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb labelPageId="marketplace.account"/>
-      </mp:bootstrapBreadcrumbs>
-
       <div class="tab-content" id="breadcrumsTabContent">
         <div id="breadcrumbIndex" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-index-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
@@ -263,9 +259,6 @@
     });
 
     AdmUtils.sortSelect();
-
-
-    $('#home').attr('class','active')
 
     </script>
     <h:outputText escape="false" value="#{trackingCodeCtrl.trackingCodeForCurrentMarketplace}"/>

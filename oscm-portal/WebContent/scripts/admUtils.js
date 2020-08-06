@@ -2323,8 +2323,9 @@ AdmUtils.changeContent = function(contentID, breadcrumbID, navId) {
  content = document.getElementById(contentID);
  breadcrumb = document.getElementById(breadcrumbID);
  nav = document.getElementById(navId);
+ alert(contentID + ", " + breadcrumbID + ", " + navId);
  $(nav).ready(function(){
-   $(content).attr('class','active')
-   $(breadcrumb).attr('class','active')
+   $(content).attr('class','show active')
+   $(breadcrumb).attr('class','show active')
   });
 }
