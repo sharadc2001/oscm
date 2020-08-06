@@ -1,5 +1,5 @@
 <!-- Copyright FUJITSU LIMITED 2020-->
-<!DOCTYPE html>
+<!DOCTYPE html [<!ENTITY num "&#35;">]>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:mp="http://www.fujitsu.com/global/services/software/interstage/marketplace"
@@ -39,29 +39,10 @@
       <ui:param name="canCloseLogin" value="#{not isMplRestricted}"/>
     </ui:include>
 
-    <div class="tab-content" id="breadcrumbsTabContent">
-      <div id="index-bredcrumbs" class="tab-pane fade show active pt-4" role="tabpanel" aria-labelledby="nav-index-tab">
-        <mp:bootstrapBreadcrumbs menu="#{true}">
-          <mp:crumb labelPageId="marketplace.account"/>
-        </mp:bootstrapBreadcrumbs>
-      </div>
-    </div>
-
     <!-- body -->
     <div class="container-fluid navbar-margin">
 
-      <div class="row">
-        <div class="aside pr-md-3"></div>
-        <div class="list-group list-group-vertical-sm text-center" id="nav-account" role="tablist"
-             aria-orientation="vertical">
-          <a class="list-group-item list-group-item-secondary list-group-item-action active" id="tabIndex"
-             data-toggle="tab" href="#index, #index-bredcrumbs" role="tab" aria-controls="index">#{msg['navigation.home']}</a>
-          <a class="list-group-item list-group-item-secondary list-group-item-action" id="tabProfile"
-             data-toggle="tab" href="#profile" role="tab" aria-controls="profile">#{msg['marketplace.account.profile.title']}</a>
-          <a class="list-group-item list-group-item-secondary list-group-item-action" id="tabPayments"
-             data-toggle="tab" href="#payments" role="tab" aria-controls="payments">#{msg['marketplace.account.payments.title']}</a>
-        </div>
-      </div>
+      <mp:barNavigationMenu bean="#{accountNavigationBean}"/>
 
       <a4j:outputPanel layout="block" styleClass="box" rendered="#{isSingleContentPage}">
 
@@ -204,6 +185,7 @@
     });
 
     AdmUtils.sortSelect();
+
 
 
 
