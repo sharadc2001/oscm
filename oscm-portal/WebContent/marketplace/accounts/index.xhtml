@@ -39,6 +39,10 @@
       <ui:param name="canCloseLogin" value="#{not isMplRestricted}"/>
     </ui:include>
 
+    <mp:bootstrapBreadcrumbs menu="#{true}">
+      <mp:crumb labelPageId="marketplace.account"/>
+    </mp:bootstrapBreadcrumbs>
+
     <!-- body -->
     <div class="container-fluid navbar-margin">
 
@@ -47,11 +51,11 @@
         <div class="list-group list-group-vertical-sm text-center" id="nav-account" role="tablist"
              aria-orientation="vertical">
           <a class="list-group-item list-group-item-secondary list-group-item-action active" id="tabIndex"
-             data-toggle="tab" href="#index, #index-breadcrumbs" role="tab" aria-controls="index">Home</a>
+             data-toggle="tab" href="#index" role="tab" aria-controls="index">Home</a>
           <a class="list-group-item list-group-item-secondary list-group-item-action" id="tabProfile"
-             data-toggle="tab" href="#profile, #profile-breadcrumbs" role="tab" aria-controls="profile">Profile</a>
+             data-toggle="tab" href="#profile" role="tab" aria-controls="profile">Profile</a>
           <a class="list-group-item list-group-item-secondary list-group-item-action" id="tabSettings"
-             data-toggle="tab" href="#settings, #settings-breadcrumbs" role="tab" aria-controls="settings">Settings</a>
+             data-toggle="tab" href="#settings" role="tab" aria-controls="settings">Settings</a>
         </div>
       </div>
 
@@ -139,11 +143,9 @@
         </div>
         <div id="profile" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-profile-tab">
           <ui:include src="profile.xhtml"/>
-
         </div>
         <div id="settings" class="tab-pane fade pt-4" role="tabpanel" aria-labelledby="nav-settings-tab">
           <ui:include src="payments.xhtml"/>
-
         </div>
       </div>
     </div>
@@ -168,8 +170,7 @@
         </li>
         <li><a id="privacyPolicyLink" href="#{mpBaseUrl}/terms/privacypolicy.jsf"
                onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/privacypolicy.jsf');return false;}">
-          <h:outputText
-              value="#{msg['marketplace.privacypolicy.title']}"/>
+          <h:outputText value="#{msg['marketplace.privacypolicy.title']}"/>
         </a>
         </li>
       </ul>
@@ -198,14 +199,10 @@
     });
 
     AdmUtils.sortSelect();
-
-
-
     </script>
     <h:outputText escape="false" value="#{trackingCodeCtrl.trackingCodeForCurrentMarketplace}"/>
 
-    <link href="${bootstrapUrl}/css/darkFooter.css" rel="stylesheet"
-          type="text/css"/>
+    <link href="${bootstrapUrl}/css/darkFooter.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript"
             src="#{facesContext.externalContext.requestContextPath}/scripts/missingViewState.patch.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
