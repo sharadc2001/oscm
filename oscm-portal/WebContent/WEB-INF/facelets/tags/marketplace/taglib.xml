@@ -131,6 +131,10 @@
     <source>bootstrapNavigationMenu.xhtml</source>
   </tag>
   <tag>
+    <tag-name>barNavigationMenu</tag-name>
+    <source>barNavigationMenu.xhtml</source>
+  </tag>
+  <tag>
     <tag-name>confirmPanel</tag-name>
     <source>confirmPanel.xhtml</source>
   </tag>
