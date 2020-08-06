@@ -14,7 +14,7 @@
       <a4j:region>
         <adm:dataTable tableId="servicesTable" value="#{manageGroupModel.serviceRows}" id="servicesTable"
                        headerClass="rowTitle serviceTableTitle" rowClasses="rowOdd,rowEven" columnClasses="wrapColumns"
-                       render="#{pagerId}, #{pagerId}Panel, scriptPanel" rows="#{pageCount}"
+                       render="#{pagerId}, #{pagerId}Panel, scriptPanelService" rows="#{pageCount}"
                        styleClass="table table-hover table-bordered w-100" columnsWidth="4%,45%,45%">
 
           <rich:column id="colServiceCheckbox" sortBy="#{rowItem.selected}" sortIcon="#{sortIcon}"
@@ -80,7 +80,7 @@
       </a4j:region>
     </a4j:outputPanel>
 
-    <a4j:outputPanel id="scriptPanel">
+    <a4j:outputPanel id="scriptPanelService">
       <script type="text/javascript">
       	initializeAllCheckbox();
         function initializeAllCheckbox() {

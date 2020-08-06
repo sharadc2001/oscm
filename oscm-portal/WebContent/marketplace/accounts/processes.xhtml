@@ -134,7 +134,7 @@
                                 valueChangeListener="#{triggerProcessBean.filteringChanged}" immediate="true"
                                 onclick="this.blur();"
                                 rendered="#{triggerDefinitionBean.administrator}">
-        <a4j:ajax render="triggerProcessTablePanel,manageProcessButtonPanel,scriptPanel" event="change"/>
+        <a4j:ajax render="triggerProcessTablePanel,manageProcessButtonPanel,scriptPanelProcesses" event="change"/>
        </h:selectBooleanCheckbox>
        <h:outputText value="#{msg['triggerProcess.myProcessesOnly']}"
                      rendered="#{triggerDefinitionBean.administrator}" style="vertical-align: center;"/>
@@ -256,7 +256,7 @@
       <a4j:jsFunction name="executeOperation" oncomplete="AdmUtils.showProgress(false);"/>
      </h:form>
 
-     <a4j:outputPanel id="scriptPanel">
+     <a4j:outputPanel id="scriptPanelProcesses">
       <script type="text/javascript">
          AdmUtils.setAllServiceCheckbox('processListForm:triggerProcessTable', 'selected', '#{fn:length(triggerProcessBean.triggerProcessList)}', 'allCheckboxes');
       </script>
