@@ -2320,15 +2320,16 @@ AdmUtils.sessionTab = function(tabId, navId) {
 }
 
 AdmUtils.changeContent = function(contentId, breadcrumbId, navId) {
- y = document.getElementsByClassName("emptyClass active");
+alert
+ y = document.getElementsByClassName('emptyClass active');
  for (i = 0; i < y.length; i++) {
-   y[i].classList.remove("active");
+   y[i].classList.remove('active');
  }
  content = document.getElementById(contentId);
  breadcrumb = document.getElementById(breadcrumbId);
  nav = document.getElementById(navId);
  $(nav).ready(function(){
-   $(content).attr('class','show active')
-   $(breadcrumb).attr('class','show active')
+   $(content).attr('class','emptyClass tab-pane fade show active')
+   $(breadcrumb).attr('class','emptyClass tab-pane fade show active')
   });
 }

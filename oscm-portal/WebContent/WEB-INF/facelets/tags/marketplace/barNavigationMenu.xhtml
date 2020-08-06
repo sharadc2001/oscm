@@ -27,7 +27,7 @@
         <!--  Menu Rows -->
         <c:forEach items="#{bean['title']}" var="key" varStatus="index">
           <c:if test="#{not(first eq key)}">
-            <h:outputLink id="link#{index.index}" role="tab" value="#"
+            <h:outputLink id="link#{index.index}" role="tab" href="javascript:void(0);"
                class="#{menuItemStyle} list-group-item list-group-item-action #{selected eq key? 'text-primary' : ''}"
                onclick="AdmUtils.changeContent('content#{index.index}', 'breadcrumb#{index.index}', 'sidebarCollapse')">
               <h4 id="menu#{index.index}">
