@@ -2330,6 +2330,6 @@ alert
  nav = document.getElementById(navId);
  $(nav).ready(function(){
    $(content).attr('class','emptyClass tab-pane fade show active')
-   $(breadcrumb).attr('class','emptyClass tab-pane fade show active')
+   $(breadcrumb).attr('class','emptyClass tab-pane fade active')
   });
 }

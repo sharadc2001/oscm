@@ -221,7 +221,8 @@
             <div id="units" class="tab-pane fade py-4" role="tabpanel" aria-labelledby="nav-org-tab">
               <h:form id="groupsListForm">
                 <a4j:outputPanel layout="block" styleClass="clearfix">
-                  <h:link styleClass="btn btn-secondary" id="addGroupButton" outcome="addNewGroup">
+                  <h:link styleClass="btn btn-secondary" id="addGroupButton"
+                          onclick="AdmUtils.changeContent('addGroupContent', 'addGroupBreadcrumb', 'sidebarCollapse')">
                     <span class="text-truncate">#{msg['button.addGroup']}</span>
                   </h:link>
                 </a4j:outputPanel>
