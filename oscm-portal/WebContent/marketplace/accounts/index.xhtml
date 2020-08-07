@@ -121,14 +121,14 @@
         <div id="editGroupBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
           <mp:bootstrapBreadcrumbs menu="#{true}">
             <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
-            <c:choose>
-              <c:when test="#{manageGroupCtrl.isLoggedAndUnitAdmin}">
-                <mp:crumb labelPageId="marketplace.account.units" link="/marketplace/account/units.jsf"/>
-              </c:when>
-              <c:otherwise>
-                <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
-              </c:otherwise>
-            </c:choose>
+<!--            <c:choose>-->
+<!--              <c:when test="#{manageGroupCtrl.isLoggedAndUnitAdmin}">-->
+<!--                <mp:crumb labelPageId="marketplace.account.units" link="/marketplace/account/units.jsf"/>-->
+<!--              </c:when>-->
+<!--              <c:otherwise>-->
+<!--                <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>-->
+<!--              </c:otherwise>-->
+<!--            </c:choose>-->
             <mp:crumb labelPageId="marketplace.account.users.manageGroup"/>
           </mp:bootstrapBreadcrumbs>
         </div>
