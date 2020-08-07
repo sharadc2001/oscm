@@ -104,6 +104,34 @@
             <mp:crumb labelPageId="marketplace.account.users.addGroup"/>
           </mp:bootstrapBreadcrumbs>
         </div>
+        <div id="addUserBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+          <mp:bootstrapBreadcrumbs menu="#{true}">
+            <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+            <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
+            <mp:crumb labelPageId="marketplace.account.users.addUser"/>
+          </mp:bootstrapBreadcrumbs>
+        </div>
+        <div id="editUserBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+          <mp:bootstrapBreadcrumbs menu="#{true}">
+            <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+            <mp:crumb label="#{msg['marketplace.account.users.title']}" link="/marketplace/account/users.jsf"/>
+            <mp:crumb label="#{updateUserModel.userName}"/>
+          </mp:bootstrapBreadcrumbs>
+        </div>
+        <div id="editGroupBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+          <mp:bootstrapBreadcrumbs menu="#{true}">
+            <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+            <c:choose>
+              <c:when test="#{manageGroupCtrl.isLoggedAndUnitAdmin}">
+                <mp:crumb labelPageId="marketplace.account.units" link="/marketplace/account/units.jsf"/>
+              </c:when>
+              <c:otherwise>
+                <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
+              </c:otherwise>
+            </c:choose>
+            <mp:crumb labelPageId="marketplace.account.users.manageGroup"/>
+          </mp:bootstrapBreadcrumbs>
+        </div>
       </div>
 
       <div class="aside pr-md-3">
@@ -218,6 +246,15 @@
         </div>
         <div id="addGroupContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
           <ui:include src="addGroup.xhtml"/>
+        </div>
+        <div id="addUserContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+          <ui:include src="addUser.xhtml"/>
+        </div>
+        <div id="editUserContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+          <ui:include src="addUser.xhtml"/>
+        </div>
+        <div id="editGroupContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+          <ui:include src="addUser.xhtml"/>
         </div>
       </div>
     </div>

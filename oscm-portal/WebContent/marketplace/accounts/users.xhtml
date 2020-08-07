@@ -33,12 +33,11 @@
                     <div class="col-md-5 pb-2">
                       <mp:buttonBootstrap id="addUserButton" bean="#{userBean}" action="addUser"
                                           value="#{msg[userBean.addUserLabelKey]}" styleClass="btn btn-secondary"
-                                          rendered="#{userBean.internalAuthMode}"/>
+                                          rendered="#{userBean.internalAuthMode}" href="#"
+                                          onclick="AdmUtils.changeContent('addUserContent', 'addUserBreadcrumb', 'sidebarCollapse')"/>
                       <adm:buttonBootstrap id="editLdapSettingsButton" value="#{msg['button.editLdapSettings']}"
-                                           bean="#{userBean}"
-                                           action="editLdapSettings"
-                                           rendered="#{userBean.loggedInUser.remoteLdapActive}"
-                                           styleClass="btn btn-secondary"/>
+                                           bean="#{userBean}" rendered="#{userBean.loggedInUser.remoteLdapActive}"
+                                           styleClass="btn btn-secondary"  action="editLdapSettings"/>
                     </div>
                     <div class="col-md-7">
                       <a4j:outputPanel styleClass="d-flex float-right input-group mb-3"
@@ -174,7 +173,8 @@
                                               expandMode="client" expanded="#{false}" rows="1">
                       <rich:column colspan="4" class="d-sm-none p-2">
                         <h:commandLink action="#{userBean.showDetails(user.userId)}">
-                          <button id="editUser#{user.userId}" type="button" class="btn btn-secondary">
+                          <button id="editUser#{user.userId}" type="button" class="btn btn-secondary"
+                                  onclick="AdmUtils.changeContent('editUserContent', 'editUserBreadcrumb', 'sidebarCollapse')">
                             #{msg['button.manageUser']}
                           </button>
                           <f:param name="userId" value="#{user.userId}"/>
@@ -221,7 +221,7 @@
             <div id="units" class="tab-pane fade py-4" role="tabpanel" aria-labelledby="nav-org-tab">
               <h:form id="groupsListForm">
                 <a4j:outputPanel layout="block" styleClass="clearfix">
-                  <h:link styleClass="btn btn-secondary" id="addGroupButton"
+                  <h:link styleClass="btn btn-secondary" id="addGroupButton" href="#"
                           onclick="AdmUtils.changeContent('addGroupContent', 'addGroupBreadcrumb', 'sidebarCollapse')">
                     <span class="text-truncate">#{msg['button.addGroup']}</span>
                   </h:link>
