@@ -34,7 +34,7 @@
               </h4>
             </a>
           </c:if>
-          <c:if test="${loop.last}">
+          <c:if test="#{loop.last}">
             <h:outputLink id="link#{index.index}" value="#"
                           styleClass="#{menuItemStyle} #{selected eq key? 'text-primary' : ''}"
                           rendered="#{bean.isLinkVisible(index.index)}"
