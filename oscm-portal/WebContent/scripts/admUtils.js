@@ -2322,7 +2322,7 @@ AdmUtils.sessionTab = function(tabId, navId) {
 AdmUtils.changeContent = function(contentId, breadcrumbId, navId) {
  y = document.getElementsByClassName('emptyClass active');
  for (i = 0; i < y.length; i++) {
-   y[i].attr('class','emptyClass tab-pane fade d-none')
+   $(y[i]).attr('class','emptyClass tab-pane fade d-none')
  }
  content = document.getElementById(contentId);
  breadcrumb = document.getElementById(breadcrumbId);
