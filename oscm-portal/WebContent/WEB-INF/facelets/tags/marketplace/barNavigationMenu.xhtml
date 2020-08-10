@@ -25,7 +25,7 @@
 
         <!--  Menu Rows -->
         <c:forEach items="#{bean['title']}" var="key" varStatus="index">
-          <c:if test="#{not(first eq key) and not(last eq key)}">
+          <c:if test="#{not(first eq key) and not(loop.last)}">
             <a id="link#{index.index}" role="tab" href="#"
                class="#{menuItemStyle} list-group-item list-group-item-action #{selected eq key? 'text-primary' : ''}"
                onclick="AdmUtils.changeContent('content#{index.index}', 'breadcrumb#{index.index}', 'sidebarCollapse')">
@@ -34,7 +34,7 @@
               </h4>
             </a>
           </c:if>
-          <c:if test="#{not(first eq key)}">
+          <c:if test="${loop.last}">
             <h:outputLink id="link#{index.index}" value="#"
                           styleClass="#{menuItemStyle} #{selected eq key? 'text-primary' : ''}"
                           rendered="#{bean.isLinkVisible(index.index)}"
