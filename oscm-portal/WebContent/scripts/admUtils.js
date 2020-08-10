@@ -2321,7 +2321,6 @@ AdmUtils.sessionTab = function(tabId, navId) {
 
 AdmUtils.changeContent = function(contentId, breadcrumbId, navId) {
  y = document.getElementsByClassName('emptyClass active');
- alert(y.length)
  for (i = 0; i < y.length; i++) {
    y[i].classList.remove('active');
  }
