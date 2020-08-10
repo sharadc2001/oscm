@@ -31,6 +31,7 @@
       <h:outputLink value="#{facesContext.externalContext.requestContextPath}#{link}" rendered="#{not empty link }">
         #{label}
       </h:outputLink>
+      <h:outputText value="#{label}" rendered="#{empty link}" />
     </c:if>
   </li>
 </ui:composition>
