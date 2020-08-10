@@ -2320,7 +2320,6 @@ AdmUtils.sessionTab = function(tabId, navId) {
 }
 
 AdmUtils.changeContent = function(contentId, breadcrumbId, navId) {
-alert
  y = document.getElementsByClassName('emptyClass tab-pane fade show active');
  for (i = 0; i < y.length; i++) {
    y[i].classList.remove('active');
