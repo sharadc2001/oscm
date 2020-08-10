@@ -5,94 +5,99 @@
                 template="../templates/mainBootstrap.xhtml">
 
   <ui:define name="breadcrumbs">
-    <div id="breadcrumbIndex" class="emptyClass tab-pane fade show active" role="tabpanel"
-         aria-labelledby="nav-index-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb labelPageId="marketplace.account"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="breadcrumb1" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb labelPageId="marketplace.account"/>
-        <mp:crumb labelPageId="marketplace.account.profile"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="breadcrumb2" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-payments-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb labelPageId="marketplace.account"/>
-        <mp:crumb labelPageId="marketplace.account.payments"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="breadcrumb3" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-subscriptions-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb labelPageId="marketplace.account"/>
-        <mp:crumb labelPageId="marketplace.account.subscriptions"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="breadcrumb4" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-users-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb labelPageId="marketplace.account"/>
-        <mp:crumb labelPageId="marketplace.account.users"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="breadcrumb5" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-units-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb labelPageId="marketplace.account"/>
-        <mp:crumb labelPageId="marketplace.account.units"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="breadcrumb6" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-reports-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb labelPageId="marketplace.account"/>
-        <mp:crumb labelPageId="marketplace.account.reports"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="breadcrumb7" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-processes-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb labelPageId="marketplace.account"/>
-        <mp:crumb labelPageId="marketplace.account.processes"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="breadcrumb8" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb labelPageId="marketplace.account"/>
-        <mp:crumb labelPageId="marketplace.account.operations"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="addGroupBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
-        <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
-        <mp:crumb labelPageId="marketplace.account.users.addGroup"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="addUserBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
-        <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
-        <mp:crumb labelPageId="marketplace.account.users.addUser"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="editUserBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
-        <mp:crumb label="#{msg['marketplace.account.users.title']}" link="/marketplace/account/users.jsf"/>
-        <mp:crumb label="#{updateUserModel.userName}"/>
-      </mp:bootstrapBreadcrumbs>
-    </div>
-    <div id="editGroupBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-      <mp:bootstrapBreadcrumbs menu="#{true}">
-        <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
-        <!--            <c:choose>-->
-        <!--              <c:when test="#{manageGroupCtrl.isLoggedAndUnitAdmin}">-->
-        <!--                <mp:crumb labelPageId="marketplace.account.units" link="/marketplace/account/units.jsf"/>-->
-        <!--              </c:when>-->
-        <!--              <c:otherwise>-->
-        <!--                <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>-->
-        <!--              </c:otherwise>-->
-        <!--            </c:choose>-->
-        <mp:crumb labelPageId="marketplace.account.users.manageGroup"/>
-      </mp:bootstrapBreadcrumbs>
+    <div class="tab-content" id="breadcrumsTabContent">
+      <div id="breadcrumbIndex" class="emptyClass tab-pane fade show active" role="tabpanel"
+           aria-labelledby="nav-index-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb labelPageId="marketplace.account"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="breadcrumb1" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb labelPageId="marketplace.account"/>
+          <mp:crumb labelPageId="marketplace.account.profile"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="breadcrumb2" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-payments-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb labelPageId="marketplace.account"/>
+          <mp:crumb labelPageId="marketplace.account.payments"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="breadcrumb3" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-subscriptions-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb labelPageId="marketplace.account"/>
+          <mp:crumb labelPageId="marketplace.account.subscriptions"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="breadcrumb4" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-users-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb labelPageId="marketplace.account"/>
+          <mp:crumb labelPageId="marketplace.account.users"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="breadcrumb5" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-units-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb labelPageId="marketplace.account"/>
+          <mp:crumb labelPageId="marketplace.account.units"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="breadcrumb6" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-reports-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb labelPageId="marketplace.account"/>
+          <mp:crumb labelPageId="marketplace.account.reports"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="breadcrumb7" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-processes-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb labelPageId="marketplace.account"/>
+          <mp:crumb labelPageId="marketplace.account.processes"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="breadcrumb8" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb labelPageId="marketplace.account"/>
+          <mp:crumb labelPageId="marketplace.account.operations"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="addGroupBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel"
+           aria-labelledby="nav-operations-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+          <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
+          <mp:crumb labelPageId="marketplace.account.users.addGroup"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="addUserBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+          <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
+          <mp:crumb labelPageId="marketplace.account.users.addUser"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="editUserBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel"
+           aria-labelledby="nav-operations-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+          <mp:crumb label="#{msg['marketplace.account.users.title']}" link="/marketplace/account/users.jsf"/>
+          <mp:crumb label="#{updateUserModel.userName}"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
+      <div id="editGroupBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel"
+           aria-labelledby="nav-operations-tab">
+        <mp:bootstrapBreadcrumbs menu="#{true}">
+          <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+          <!--            <c:choose>-->
+          <!--              <c:when test="#{manageGroupCtrl.isLoggedAndUnitAdmin}">-->
+          <!--                <mp:crumb labelPageId="marketplace.account.units" link="/marketplace/account/units.jsf"/>-->
+          <!--              </c:when>-->
+          <!--              <c:otherwise>-->
+          <!--                <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>-->
+          <!--              </c:otherwise>-->
+          <!--            </c:choose>-->
+          <mp:crumb labelPageId="marketplace.account.users.manageGroup"/>
+        </mp:bootstrapBreadcrumbs>
+      </div>
     </div>
   </ui:define>
 
@@ -129,18 +134,18 @@
       <div id="content8" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
         <ui:include src="operations.xhtml"/>
       </div>
-<!--      <div id="addGroupContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">-->
-<!--        <ui:include src="addGroup.xhtml"/>-->
-<!--      </div>-->
-<!--      <div id="addUserContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">-->
-<!--        <ui:include src="addUser.xhtml"/>-->
-<!--      </div>-->
-<!--      &lt;!&ndash;        <div id="editUserContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">&ndash;&gt;-->
-<!--      &lt;!&ndash;          <ui:include src="editUser.xhtml"/>&ndash;&gt;-->
-<!--      &lt;!&ndash;        </div>&ndash;&gt;-->
-<!--      <div id="editGroupContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">-->
-<!--        <ui:include src="editGroup.xhtml"/>-->
-<!--      </div>-->
+      <!--      <div id="addGroupContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">-->
+      <!--        <ui:include src="addGroup.xhtml"/>-->
+      <!--      </div>-->
+      <!--      <div id="addUserContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">-->
+      <!--        <ui:include src="addUser.xhtml"/>-->
+      <!--      </div>-->
+      <!--      &lt;!&ndash;        <div id="editUserContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">&ndash;&gt;-->
+      <!--      &lt;!&ndash;          <ui:include src="editUser.xhtml"/>&ndash;&gt;-->
+      <!--      &lt;!&ndash;        </div>&ndash;&gt;-->
+      <!--      <div id="editGroupContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">-->
+      <!--        <ui:include src="editGroup.xhtml"/>-->
+      <!--      </div>-->
     </div>
   </ui:define>
 
