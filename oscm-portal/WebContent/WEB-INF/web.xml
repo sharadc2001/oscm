@@ -72,6 +72,28 @@
     <param-value>false</param-value>
   </context-param>
 
+  <context-param>
+    <param-name>org.richfaces.LoadScriptStrategy</param-name>
+    <param-value>ALL</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.richfaces.LoadStyleStrategy</param-name>
+    <param-value>ALL</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.richfaces.resourceOptimization.enabled</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>Resource Servlet</servlet-name>
+    <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Resource Servlet</servlet-name>
+    <url-pattern>/org.richfaces.resources/*</url-pattern>
+  </servlet-mapping>
+
   <!-- SERVLETS -->
   <servlet>
     <display-name>ImageServlet</display-name>
