@@ -88,7 +88,7 @@
 
             <hr/>
             <a4j:outputPanel styleClass="row justify-content-end">
-              <a4j:commandButton id="saveUserButton" value="#{msg['button.save']}" bean="#{organizationBean}"
+              <h:outputLink id="saveUserButton" value="#{msg['button.save']}" bean="#{organizationBean}" href="#"
                                onclick="validateCurrentUserRoles();return false;" render="@form :globalMessagesHolder"
                                class="btn btn-secondary mr-4" action="save" />
             </a4j:outputPanel>
