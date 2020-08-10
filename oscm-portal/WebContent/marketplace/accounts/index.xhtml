@@ -1,329 +1,147 @@
 <!-- Copyright FUJITSU LIMITED 2020-->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:mp="http://www.fujitsu.com/global/services/software/interstage/marketplace"
-      xmlns:rich="http://richfaces.org/rich" xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a4j="http://richfaces.org/a4j">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:mp="http://www.fujitsu.com/global/services/software/interstage/marketplace"
+                template="../templates/mainBootstrap.xhtml">
 
-<h:head>
-  <c:set var="mpBaseUrl" value="#{facesContext.externalContext.requestContextPath}/marketplace"/>
-  <c:set var="isMplRestricted" value="#{marketplaceBean.restricted}"/>
-  <ui:insert name="pageId"/>
-  <ui:insert name="stage"/>
-  <ui:include src="../templates/headBootstrap.xhtml">
-    <ui:param name="dirty" value="#{dirty}"/>
-  </ui:include>
-</h:head>
-
-<h:body>
-  <rich:jQuery selector="document" query="ready(function(){AdmUtils.initFocus();AdmUtils.setUIElements()});"/>
-  <c:if test="#{not empty firstErrorElement or not empty focusElement}">
-    <c:set var="elementId"
-           value="#{(not empty firstErrorElement)?firstErrorElement:(empty rich:clientId(focusElement)?focusElement:(rich:clientId(focusElement)))}"/>
-    <rich:jQuery selector="document"
-                 query="ready(function(){
-          var element = document.getElementById('#{elementId}');
-          try {element.focus()} catch (e) {/* if the element cannot get the focus, ignore it */}
-        })"/>
-  </c:if>
-  <mp:keepAlive interval="#{appBean.interval}"/>
-
-  <a4j:outputPanel id="contentPanelDiv" layout="block">
-    <a id="top" name="top"/>
-
-    <!-- header -->
-    <mp:headerBootstrap user="#{userBean.loggedInUser}"
-                        loginHandler="showLoginPanel('#{defaultLoginRedirect}');return false;"/>
-    <ui:include src="../login.xhtml">
-      <ui:param name="canCloseLogin" value="#{not isMplRestricted}"/>
-    </ui:include>
-
-    <!-- body -->
-    <div class="container-fluid navbar-margin">
-
-      <div class="tab-content" id="breadcrumsTabContent">
-        <div id="breadcrumbIndex" class="emptyClass tab-pane fade show active" role="tabpanel"
-             aria-labelledby="nav-index-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="breadcrumb1" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account"/>
-            <mp:crumb labelPageId="marketplace.account.profile"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="breadcrumb2" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-payments-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account"/>
-            <mp:crumb labelPageId="marketplace.account.payments"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="breadcrumb3" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-subscriptions-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account"/>
-            <mp:crumb labelPageId="marketplace.account.subscriptions"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="breadcrumb4" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-users-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account"/>
-            <mp:crumb labelPageId="marketplace.account.users"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="breadcrumb5" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-units-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account"/>
-            <mp:crumb labelPageId="marketplace.account.units"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="breadcrumb6" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-reports-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account"/>
-            <mp:crumb labelPageId="marketplace.account.reports"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="breadcrumb7" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-processes-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account"/>
-            <mp:crumb labelPageId="marketplace.account.processes"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="breadcrumb8" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb labelPageId="marketplace.account"/>
-            <mp:crumb labelPageId="marketplace.account.operations"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="addGroupBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
-            <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
-            <mp:crumb labelPageId="marketplace.account.users.addGroup"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="addUserBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
-            <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
-            <mp:crumb labelPageId="marketplace.account.users.addUser"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="editUserBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
-            <mp:crumb label="#{msg['marketplace.account.users.title']}" link="/marketplace/account/users.jsf"/>
-            <mp:crumb label="#{updateUserModel.userName}"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-        <div id="editGroupBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-          <mp:bootstrapBreadcrumbs menu="#{true}">
-            <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
-<!--            <c:choose>-->
-<!--              <c:when test="#{manageGroupCtrl.isLoggedAndUnitAdmin}">-->
-<!--                <mp:crumb labelPageId="marketplace.account.units" link="/marketplace/account/units.jsf"/>-->
-<!--              </c:when>-->
-<!--              <c:otherwise>-->
-<!--                <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>-->
-<!--              </c:otherwise>-->
-<!--            </c:choose>-->
-            <mp:crumb labelPageId="marketplace.account.users.manageGroup"/>
-          </mp:bootstrapBreadcrumbs>
-        </div>
-      </div>
-
-      <div class="aside pr-md-3">
-        <mp:barNavigationMenu bean="#{accountNavigationBean}"/>
-      </div>
-
-      <a4j:outputPanel layout="block" styleClass="box" rendered="#{isSingleContentPage}">
-
-        <ui:insert name="singlecontent"/>
-      </a4j:outputPanel>
-
-      <a4j:outputPanel id="localeErrorPanel" layout="block" styleClass="errorPanel" style="display:block"
-                       rendered="#{appBean.errorPanelForLocaleShow}">
-        <dl class="rich-messages box warning my-2">
-          <dt>
-              <span class="rich-messages-label">
-                <h:outputFormat value="#{msg['warning.supportedlanguage.locale.deactivated']}">
-                  <f:param value="#{appBean.oldUserLocale}"/>
-                </h:outputFormat>
-              </span>
-          </dt>
-        </dl>
-      </a4j:outputPanel>
-
-      <!-- error message container -->
-      <a4j:outputPanel id="globalMessagesHolder" class="con-flow-root">
-        <a4j:outputPanel id="errorPanel" layout="block" styleClass="errorPanel">
-        </a4j:outputPanel>
-
-        <!-- progress message -->
-        <a4j:outputPanel id="progressPanel" layout="block" rendered="#{facesContext.maximumSeverity.ordinal == 0}">
-          <rich:messages infoClass="infoMsg" layout="list" id="progressMessages" styleClass="box suspended my-2"
-                         for="progressPanel" ajaxRendered="false"/>
-        </a4j:outputPanel>
-
-        <!-- info messages -->
-        <a4j:outputPanel id="infoPanelHolder">
-          <a4j:outputPanel id="infoPanel" layout="block" rendered="#{facesContext.maximumSeverity.ordinal == 0}">
-            <rich:messages infoClass="infoMsg" passedLabel="" layout="list" id="infoMessages"
-                           styleClass="box success my-2" globalOnly="true" ajaxRendered="false"/>
-          </a4j:outputPanel>
-        </a4j:outputPanel>
-        <a4j:outputPanel id="hiddenInfoPanel" layout="block">
-        </a4j:outputPanel>
-
-        <!-- if we find an error during the processing of the body,
-         we must add the corresponding message to the error container above -->
-        <!-- error messages -->
-        <a4j:outputPanel id="hiddenErrorPanel" layout="block" styleClass="errorPanel">
-          <!-- filter error messages -->
-          <c:if test="#{not empty errorKey and not sessionBean.errorMessageDuplicate}">
-            <dl class="rich-messages box error" id="errorMessages1">
-              <dt>
-                <h:outputFormat value="#{msg[errorKey]}">
-                  <f:param value="#{errorParam0}"/>
-                  <f:param value="#{errorParam1}"/>
-                  <f:param value="#{errorParam2}"/>
-                  <f:param value="#{errorParam3}"/>
-                  <f:param value="#{errorParam4}"/>
-                </h:outputFormat>
-              </dt>
-            </dl>
-          </c:if>
-          <!-- JSF error messages -->
-          <rich:messages id="errorMessages" globalOnly="true" ajaxRendered="false" styleClass="box error my-2"
-                         rendered="#{facesContext.maximumSeverity.ordinal > 0}"/>
-          <!-- warning messages -->
-          <c:if test="#{not empty warningKey}">
-            <dl class="rich-messages box warning" id="warningMessages1">
-              <dt>
-                <h:outputFormat value="#{msg[warningKey]}">
-                  <f:param value="#{warningParam0}"/>
-                  <f:param value="#{warningParam1}"/>
-                  <f:param value="#{warningParam2}"/>
-                  <f:param value="#{warningParam3}"/>
-                  <f:param value="#{warningParam4}"/>
-                </h:outputFormat>
-              </dt>
-            </dl>
-          </c:if>
-
-        </a4j:outputPanel>
-      </a4j:outputPanel>
-
-      <div class="tab-content" id="accountTabContent">
-        <div id="index" class="emptyClass tab-pane fade show active" role="tabpanel" aria-labelledby="nav-index-tab">
-          <ui:include src="main.xhtml"/>
-        </div>
-        <div id="content1" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
-          <ui:include src="profile.xhtml"/>
-        </div>
-        <div id="content2" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-payments-tab">
-          <ui:include src="payments.xhtml"/>
-        </div>
-        <div id="content3" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-subscriptions-tab">
-          <ui:include src="subscriptions.xhtml"/>
-        </div>
-        <div id="content4" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-users-tab">
-          <ui:include src="users.xhtml"/>
-        </div>
-        <div id="content5" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-units-tab">
-          <ui:include src="units.xhtml"/>
-        </div>
-        <div id="content6" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-reports-tab">
-          <ui:include src="reports.xhtml"/>
-        </div>
-        <div id="content7" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-processes-tab">
-          <ui:include src="processes.xhtml"/>
-        </div>
-        <div id="content8" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-          <ui:include src="operations.xhtml"/>
-        </div>
-        <div id="addGroupContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-          <ui:include src="addGroup.xhtml"/>
-        </div>
-        <div id="addUserContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-          <ui:include src="addUser.xhtml"/>
-        </div>
-<!--        <div id="editUserContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">-->
-<!--          <ui:include src="editUser.xhtml"/>-->
-<!--        </div>-->
-        <div id="editGroupContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
-          <ui:include src="editGroup.xhtml"/>
-        </div>
-      </div>
+  <ui:define name="breadcrumbs">
+    <div id="breadcrumbIndex" class="emptyClass tab-pane fade show active" role="tabpanel"
+         aria-labelledby="nav-index-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb labelPageId="marketplace.account"/>
+      </mp:bootstrapBreadcrumbs>
     </div>
-  </a4j:outputPanel>
-  <c:set var="bootstrapUrl" value="#{sessionBean.customBootstrapUrl}"/>
-
-  <footer class="bootstrap_footer">
-
-    <div class="container-fluid text-center py-3">
-      <ul>
-        <li class="firstchild">
-          <a id="imprintLink" href="#{imprintUrl}" target="_blank"
-             onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/imprint.jsf');return false;}">
-            <h:outputText value="#{msg['marketplace.imprint.title']}"/>
-          </a>
-        </li>
-        <li>
-          <a href="#{mpBaseUrl}/terms/terms.jsf"
-             onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/terms.jsf');return false;}">
-            <h:outputText value="#{msg['marketplace.terms.title']}"/>
-          </a>
-        </li>
-        <li>
-          <a id="privacyPolicyLink" href="#{mpBaseUrl}/terms/privacypolicy.jsf"
-             onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/privacypolicy.jsf');return false;}">
-            <h:outputText value="#{msg['marketplace.privacypolicy.title']}"/>
-          </a>
-        </li>
-      </ul>
+    <div id="breadcrumb1" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb labelPageId="marketplace.account"/>
+        <mp:crumb labelPageId="marketplace.account.profile"/>
+      </mp:bootstrapBreadcrumbs>
     </div>
+    <div id="breadcrumb2" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-payments-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb labelPageId="marketplace.account"/>
+        <mp:crumb labelPageId="marketplace.account.payments"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+    <div id="breadcrumb3" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-subscriptions-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb labelPageId="marketplace.account"/>
+        <mp:crumb labelPageId="marketplace.account.subscriptions"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+    <div id="breadcrumb4" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-users-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb labelPageId="marketplace.account"/>
+        <mp:crumb labelPageId="marketplace.account.users"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+    <div id="breadcrumb5" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-units-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb labelPageId="marketplace.account"/>
+        <mp:crumb labelPageId="marketplace.account.units"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+    <div id="breadcrumb6" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-reports-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb labelPageId="marketplace.account"/>
+        <mp:crumb labelPageId="marketplace.account.reports"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+    <div id="breadcrumb7" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-processes-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb labelPageId="marketplace.account"/>
+        <mp:crumb labelPageId="marketplace.account.processes"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+    <div id="breadcrumb8" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb labelPageId="marketplace.account"/>
+        <mp:crumb labelPageId="marketplace.account.operations"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+    <div id="addGroupBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+        <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
+        <mp:crumb labelPageId="marketplace.account.users.addGroup"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+    <div id="addUserBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+        <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>
+        <mp:crumb labelPageId="marketplace.account.users.addUser"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+    <div id="editUserBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+        <mp:crumb label="#{msg['marketplace.account.users.title']}" link="/marketplace/account/users.jsf"/>
+        <mp:crumb label="#{updateUserModel.userName}"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+    <div id="editGroupBreadcrumb" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+      <mp:bootstrapBreadcrumbs menu="#{true}">
+        <mp:crumb label="#{msg['marketplace.account.title']}" link="/marketplace/account/index.jsf"/>
+        <!--            <c:choose>-->
+        <!--              <c:when test="#{manageGroupCtrl.isLoggedAndUnitAdmin}">-->
+        <!--                <mp:crumb labelPageId="marketplace.account.units" link="/marketplace/account/units.jsf"/>-->
+        <!--              </c:when>-->
+        <!--              <c:otherwise>-->
+        <!--                <mp:crumb labelPageId="marketplace.account.users" link="/marketplace/account/users.jsf"/>-->
+        <!--              </c:otherwise>-->
+        <!--            </c:choose>-->
+        <mp:crumb labelPageId="marketplace.account.users.manageGroup"/>
+      </mp:bootstrapBreadcrumbs>
+    </div>
+  </ui:define>
 
-    <script type="text/javascript">
-    <c:forEach items="#{additionalErrorElements}" var="ee">
-      AdmUtils.setHighlight("#{ee}");
-    </c:forEach>
-    AdmUtils.contentsTitle();
-    AdmUtils.setInfoPanel("progressMessages");
-    AdmUtils.setInfoPanel("infoMessages");
+  <ui:define name="aside">
+    <mp:barNavigationMenu bean="#{accountNavigationBean}"/>
+  </ui:define>
 
-    var currentViewId = "#{facesContext.viewRoot.viewId}";
-    var recoverPasswordView = currentViewId.indexOf("recoverPassword.xhtml");
-    var confirmRecoverPasswordView = currentViewId.indexOf("confirmStartPwdRecovery.xhtml");
-    if(#{isMplRestricted and empty userBean.loggedInUser and userBean.internalAuthMode}){
-      if (recoverPasswordView == -1 &amp;&amp; confirmRecoverPasswordView == -1) {
-    	  showLoginPanel('/marketplace/index.jsf');
-    	}
-    }
-    $(document).ready(function() {
-       if(#{isMplRestricted and empty userBean.loggedInUser and not userBean.internalAuthMode}){
-      document.getElementById('formLogin:loginLink').click();
-    }
-    });
+  <ui:define name="contents">
+    <div class="tab-content" id="accountTabContent">
+      <div id="index" class="emptyClass tab-pane fade show active" role="tabpanel" aria-labelledby="nav-index-tab">
+        <ui:include src="main.xhtml"/>
+      </div>
+      <div id="content1" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <ui:include src="profile.xhtml"/>
+      </div>
+      <div id="content2" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-payments-tab">
+        <ui:include src="payments.xhtml"/>
+      </div>
+      <div id="content3" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-subscriptions-tab">
+        <ui:include src="subscriptions.xhtml"/>
+      </div>
+      <div id="content4" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-users-tab">
+        <ui:include src="users.xhtml"/>
+      </div>
+      <div id="content5" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-units-tab">
+        <ui:include src="units.xhtml"/>
+      </div>
+      <div id="content6" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-reports-tab">
+        <ui:include src="reports.xhtml"/>
+      </div>
+      <div id="content7" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-processes-tab">
+        <ui:include src="processes.xhtml"/>
+      </div>
+      <div id="content8" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">
+        <ui:include src="operations.xhtml"/>
+      </div>
+<!--      <div id="addGroupContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">-->
+<!--        <ui:include src="addGroup.xhtml"/>-->
+<!--      </div>-->
+<!--      <div id="addUserContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">-->
+<!--        <ui:include src="addUser.xhtml"/>-->
+<!--      </div>-->
+<!--      &lt;!&ndash;        <div id="editUserContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">&ndash;&gt;-->
+<!--      &lt;!&ndash;          <ui:include src="editUser.xhtml"/>&ndash;&gt;-->
+<!--      &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      <div id="editGroupContent" class="emptyClass tab-pane fade" role="tabpanel" aria-labelledby="nav-operations-tab">-->
+<!--        <ui:include src="editGroup.xhtml"/>-->
+<!--      </div>-->
+    </div>
+  </ui:define>
 
-    AdmUtils.sortSelect();
-
-
-
-    </script>
-    <h:outputText escape="false" value="#{trackingCodeCtrl.trackingCodeForCurrentMarketplace}"/>
-
-    <link href="${bootstrapUrl}/css/darkFooter.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript"
-            src="#{facesContext.externalContext.requestContextPath}/scripts/missingViewState.patch.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"/>
-  </footer>
-</h:body>
-</html>
+</ui:composition>
