@@ -15,14 +15,13 @@
            role="tablist"
            aria-orientation="vertical">
         <!--  Header Row -->
-        <h:outputLink id="link0" data-toggle="tab" href="#" role="tab"
-                      aria-controls="#{msg[first]}"
-                      styleClass="#{menuHeaderStyle} emptyClass list-group-item list-group-item-action active #{selected eq first? 'text-primary' : 'text-light'}"
+        <a id="link0" data-toggle="tab" href="#" role="tab" aria-controls="#{msg[first]}"
+                      class="#{menuHeaderStyle} emptyClass list-group-item list-group-item-action active #{selected eq first? 'text-primary' : 'text-light'}"
                       onclick="AdmUtils.changeContent('index', 'breadcrumbIndex', 'sidebarCollapse')">
           <h3 id="menu0">
             <h:outputText value="#{msg[first]}"/>
           </h3>
-        </h:outputLink>
+        </a>
 
         <!--  Menu Rows -->
         <c:forEach items="#{bean['title']}" var="key" varStatus="index">
