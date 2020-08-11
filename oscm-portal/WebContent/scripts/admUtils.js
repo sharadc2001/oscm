@@ -2335,7 +2335,7 @@ localStorage.setItem('activeBreadcrumb', breadcrumb)
   });
 }
 
-AdmUtils.sessionAccountTab = function(navId) {
+AdmUtils.sessionAccountTab = document.addEventListener("DOMContentLoaded", function(navId) {
 console.log("start");
   y = document.getElementsByClassName('emptyClass active');
  for (i = 0; i < y.length; i++) {
@@ -2351,4 +2351,4 @@ console.log("start");
      $(content).attr('class','emptyClass tab-pane fade show active')
      $(breadcrumb).attr('class','emptyClass tab-pane fade show active')
   });
-}
+});
