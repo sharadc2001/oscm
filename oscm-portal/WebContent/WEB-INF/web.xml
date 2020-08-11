@@ -75,19 +75,6 @@
     <param-value>None</param-value>
   </context-param>
 
-  <context-param>
-    <param-name>org.ajax4jsf.COMPRESS_SCRIPT</param-name>
-    <param-value>true</param-value>
-  </context-param>
-  <context-param>
-    <param-name>org.ajax4jsf.COMPRESS_STYLE</param-name>
-    <param-value>true</param-value>
-  </context-param>
-  <context-param>
-    <param-name>org.ajax4jsf.DEFAULT_EXPIRE</param-name>
-    <param-value>36288000</param-value>
-  </context-param>
-
   <!-- SERVLETS -->
   <servlet>
     <display-name>ImageServlet</display-name>
