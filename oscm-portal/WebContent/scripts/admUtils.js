@@ -2342,9 +2342,11 @@ AdmUtils.sessionAccountTab = function(navId) {
  }
  var content = localStorage.getItem('activeContent');
  var breadcrumb = localStorage.getItem('activeBreadcrumb');
+ alert('content');
  nav = document.getElementById(navId);
  $(nav).ready(function(){
-   if(tabSession != null)
+   if(content != null)
+    alert('Inside if');
      $(content).attr('class','emptyClass tab-pane fade show active')
      $(breadcrumb).attr('class','emptyClass tab-pane fade show active')
   });
