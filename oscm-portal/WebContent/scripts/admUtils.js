@@ -2327,8 +2327,25 @@ AdmUtils.changeContent = function(contentId, breadcrumbId, navId) {
  content = document.getElementById(contentId);
  breadcrumb = document.getElementById(breadcrumbId);
  nav = document.getElementById(navId);
+localStorage.setItem('activeContent', content)
+localStorage.setItem('activeBreadcrumb', breadcrumb)
  $(nav).ready(function(){
    $(content).attr('class','emptyClass tab-pane fade show active')
    $(breadcrumb).attr('class','emptyClass tab-pane fade show active')
+  });
+}
+
+AdmUtils.sessionAccountTab = function(navId) {
+  y = document.getElementsByClassName('emptyClass active');
+ for (i = 0; i < y.length; i++) {
+   $(y[i]).attr('class','emptyClass tab-pane fade d-none')
+ }
+ var content = localStorage.getItem('activeContent');
+ var breadcrumb = localStorage.getItem('activeBreadcrumb');
+ nav = document.getElementById(navId);
+ $(nav).ready(function(){
+   if(tabSession != null)
+     $(content).attr('class','emptyClass tab-pane fade show active')
+     $(breadcrumb).attr('class','emptyClass tab-pane fade show active')
   });
 }
