@@ -51,8 +51,8 @@
     </ui:include>
 
     <!-- body -->
-    <a4j:region>
-      <div class="container-fluid navbar-margin">
+    <div class="container-fluid navbar-margin">
+      <a4j:region>
 
         <adm:initialize initializingMethod="#{appBean.userLocaleUpdated}"/>
         <ui:insert name="feature"/>
@@ -145,8 +145,8 @@
 
         <ui:insert name="contentstitle"/>
         <ui:insert name="contents"/>
-      </div>
-    </a4j:region>
+      </a4j:region>
+    </div>
   </a4j:outputPanel>
 
   <!-- footer -->
@@ -211,10 +211,6 @@
 
     AdmUtils.preventDefaultSubmitOnEnter();
     AdmUtils.sortSelect();
-
-
-
-
   </script>
   <h:outputText escape="false" value="#{trackingCodeCtrl.trackingCodeForCurrentMarketplace}"/>
 
@@ -232,7 +228,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"/>
   <link type="text/css" rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-  <a4j:loadScript src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
+  <h:outputScript src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
 
 </h:body>
 </html>
