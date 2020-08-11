@@ -1,7 +1,8 @@
 <!-- Copyright FUJITSU LIMITED 2020-->
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:a4j="http://richfaces.org/a4j">
 
   <meta http-equiv="Pragma" content="no-cache"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -11,7 +12,8 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-  <script src="#{facesContext.externalContext.requestContextPath}/scripts/admUtils.min.js" type="text/javascript"></script>
+  <script src="#{facesContext.externalContext.requestContextPath}/scripts/admUtils.min.js"
+          type="text/javascript"></script>
 
   <h:outputScript target="body">
     var onSubmitFlag = false;
@@ -31,10 +33,11 @@
     </c:if>
   </h:outputScript>
 
- <c:set var="bootstrapBrandBaseUrl" value="#{sessionBean.bootstrapBrandBaseUrl}"/>
+  <c:set var="bootstrapBrandBaseUrl" value="#{sessionBean.bootstrapBrandBaseUrl}"/>
+  <a4j:loadScript src="resource://jquery.js"/>
 
   <!-- Bootstrap libraries -->
-   <link href="${facesContext.externalContext.requestContextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+  <link href="${facesContext.externalContext.requestContextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet"
         type="text/css"/>
   <link href="${bootstrapBrandBaseUrl}/customBootstrap/css/darkCustom.min.css" rel="stylesheet" type="text/css"/>
   <link href="#{sessionBean.mpBrandUrl}" rel="stylesheet" type="text/css" media="screen,projection,print"/>
