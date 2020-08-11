@@ -2336,17 +2336,18 @@ localStorage.setItem('activeBreadcrumb', breadcrumb)
 }
 
 AdmUtils.sessionAccountTab = function(navId) {
+console.log("start");
   y = document.getElementsByClassName('emptyClass active');
  for (i = 0; i < y.length; i++) {
    $(y[i]).attr('class','emptyClass tab-pane fade d-none')
  }
  var content = localStorage.getItem('activeContent');
  var breadcrumb = localStorage.getItem('activeBreadcrumb');
- alert('content');
+ console.log(content);
  nav = document.getElementById(navId);
  $(nav).ready(function(){
    if(content != null)
-    alert('Inside if');
+    console.log('Inside if');
      $(content).attr('class','emptyClass tab-pane fade show active')
      $(breadcrumb).attr('class','emptyClass tab-pane fade show active')
   });
