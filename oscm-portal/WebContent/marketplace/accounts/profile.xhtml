@@ -89,7 +89,7 @@
             <hr/>
             <a4j:outputPanel styleClass="row justify-content-end">
               <h:commandButton id="saveUserButton" value="#{msg['button.save']}" bean="#{organizationBean}"
-                               onclick="validateCurrentUserRoles();return false;" render="@form :globalMessagesHolder"
+                               onclick="validateCurrentUserRoles();return false;"
                                styleClass="btn btn-secondary mr-4"/>
             </a4j:outputPanel>
           </h:form>
@@ -128,9 +128,9 @@
 
             <hr/>
             <a4j:outputPanel styleClass="row justify-content-end">
-              <h:commandButton id="saveOrgButton" value="#{msg['button.save']}" bean="#{organizationBean}"
-                               action="save" onclick="validateCurrentUserRoles();return false;"
-                               styleClass="btn btn-secondary mr-4" render="@form :globalMessagesHolder"/>
+              <adm:buttonBootstrap id="saveOrgButton" value="#{msg['button.save']}" bean="#{organizationBean}"
+                                   action="save" onclick="e.preventDefault();validateCurrentUserRoles();return false;"
+                                   styleClass="btn btn-secondary mr-4"/>
             </a4j:outputPanel>
           </h:form>
         </div>
@@ -265,9 +265,9 @@
             <br/>
             <hr/>
             <a4j:outputPanel styleClass="row justify-content-end">
-              <h:commandButton id="saveAttrButton" value="#{msg['button.save']}" bean="#{manageAttributesCtrl}"
-                               action="saveAttributes" rendered="#{(not empty manageAttributesCtrl.model.attributes)}"
-                               styleClass="btn btn-secondary mr-4" render="@form :globalMessagesHolder"/>
+              <adm:buttonBootstrap id="saveAttrButton" value="#{msg['button.save']}" bean="#{manageAttributesCtrl}"
+                                   rendered="#{(not empty manageAttributesCtrl.model.attributes)}"
+                                   styleClass="btn btn-secondary mr-4" action="saveAttributes"/>
             </a4j:outputPanel>
           </h:form>
         </div>
