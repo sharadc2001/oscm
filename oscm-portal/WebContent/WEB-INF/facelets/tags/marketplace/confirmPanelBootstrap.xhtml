@@ -40,7 +40,7 @@
     <a4j:outputPanel layout="block" styleClass="row row-justify-space">
       <c:choose>
         <c:when test="#{empty cancelAction}">
-          <mp:buttonBootstrap id="${modalId}CancelButton" value="#{msg['button.no']}"
+          <mp:buttonBootstrap value="#{msg['button.no']}"
                               styleClass="btn btn-sm btn-outline-secondary ml-3"
                               onclick="#{rich:component(modalId)}.hide();return false;"/>
         </c:when>
@@ -50,7 +50,7 @@
                               oncomplete="AdmUtils.showProgress(false);#{rich:component(modalId)}.hide();return false;"/>
         </c:otherwise>
       </c:choose>
-      <mp:buttonBootstrap id="${modalId}DialogOkButton" value="#{msg['button.yes']}" styleClass="btn btn-sm btn-secondary mr-3"
+      <mp:buttonBootstrap value="#{msg['button.yes']}" styleClass="btn btn-sm btn-secondary mr-3"
                           onclick="AdmUtils.showProgress(true);#{rich:element(submitId)}.click(); return false;"/>
     </a4j:outputPanel>
   </rich:popupPanel>
