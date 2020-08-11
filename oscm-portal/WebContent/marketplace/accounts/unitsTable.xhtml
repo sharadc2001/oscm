@@ -30,7 +30,7 @@
         <div class="d-none d-lg-block text-center">
           <h:commandLink action="#{manageGroupCtrl.confirmIfUnitExists()}" href="#"
                          onclick="AdmUtils.changeContent('editGroupContent', 'editGroupBreadcrumb', 'sidebarCollapse')">
-            <img src="#{imgUrl}/transparentPixel.png" class="editPen"/>
+            <img src="#{imgUrl}/oscm-portal/marketplace/img/transparentPixel.png" class="editPen" alt=""/>
             <f:param name="groupId" value="#{group.key}"/>
           </h:commandLink>
         </div>
@@ -119,7 +119,7 @@
                                 expanded="#{false}" rows="1">
         <rich:column colspan="6" class="d-lg-none p-2">
           <h:commandLink action="#{manageGroupCtrl.confirmIfUnitExists()}">
-            <button id="editUnits#{group.groupName}" type="button" class="btn btn-secondary">
+            <button id="editUnitsDialog#{group.groupName}" type="button" class="btn btn-secondary">
               #{msg['button.manageOrganization']}
             </button>
             <f:param name="groupId" value="#{group.key}"/>
