@@ -69,16 +69,15 @@
     <param-value>false</param-value>
   </context-param>
   <context-param>
-    <param-name>org.richfaces.LoadScriptStrategy</param-name>
-    <param-value>ALL</param-value>
+    <param-name>org.richfaces.resourceMapping.enabled</param-name>
+    <param-value>true</param-value>
   </context-param>
   <context-param>
-    <param-name>org.richfaces.LoadStyleStrategy</param-name>
-    <param-value>ALL</param-value>
+    <param-name>org.richfaces.resourceMapping.packedStages</param-name>
+    <param-value>None</param-value>
   </context-param>
-  <!--  If you use LoadScriptStrategy ALL, turn the compression off  -->
   <context-param>
-    <param-name>org.ajax4jsf.COMPRESS_SCRIPT</param-name>
+    <param-name>org.richfaces.resourceOptimization.enabled</param-name>
     <param-value>false</param-value>
   </context-param>
 
@@ -248,6 +247,29 @@
   <filter>
     <filter-name>DisableUrlFilter</filter-name>
     <filter-class>org.oscm.ui.filter.DisableUrlFilter</filter-class>
+  </filter>
+  
+  <!--Richfaces optimization-->
+  <filter>
+    <display-name>Ajax4jsf Filter</display-name>
+    <filter-name>ajax4jsf</filter-name>
+    <filter-class>org.ajax4jsf.Filter</filter-class>
+    <init-param>
+      <param-name>forceparser</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>enable-cache</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>createTempFiles</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>maxRequestSize</param-name>
+      <param-value>1024000000</param-value>
+    </init-param>
   </filter>
 
   <!-- SERVLET FILTER MAPPINGS -->
