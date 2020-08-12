@@ -69,24 +69,17 @@
     <param-value>false</param-value>
   </context-param>
   <context-param>
-    <param-name>org.richfaces.resourceMapping.enabled</param-name>
-    <param-value>true</param-value>
-  </context-param>
-  <context-param>
-    <param-name>org.richfaces.resourceMapping.packedStages</param-name>
-    <param-value>None</param-value>
-  </context-param>
-  <context-param>
-    <param-name>org.richfaces.resourceOptimization.enabled</param-name>
-    <param-value>false</param-value>
-  </context-param>
-  <context-param>
     <param-name>org.richfaces.LoadScriptStrategy</param-name>
     <param-value>ALL</param-value>
   </context-param>
   <context-param>
     <param-name>org.richfaces.LoadStyleStrategy</param-name>
     <param-value>ALL</param-value>
+  </context-param>
+  <!--  If you use LoadScriptStrategy ALL, turn the compression off  -->
+  <context-param>
+    <param-name>org.ajax4jsf.COMPRESS_SCRIPT</param-name>
+    <param-value>false</param-value>
   </context-param>
 
   <!-- SERVLETS -->
