@@ -33,9 +33,8 @@
   <c:set var="bootstrapBrandBaseUrl" value="#{sessionBean.bootstrapBrandBaseUrl}"/>
 
   <!-- Bootstrap libraries -->
-  <link href="${facesContext.externalContext.requestContextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet"
-        type="text/css"/>
-  <link href="${bootstrapBrandBaseUrl}/customBootstrap/css/darkCustom.min.css" rel="stylesheet" type="text/css"/>
+  <h:outputStylesheet library="css" name ="${facesContext.externalContext.requestContextPath}/bootstrap/css/bootstrap.min.css"/>
+  <h:outputStylesheet library="css" name ="${bootstrapBrandBaseUrl}/customBootstrap/css/darkCustom.min.css"/>
   <link href="#{sessionBean.mpBrandUrl}" rel="stylesheet" type="text/css" media="screen,projection,print"/>
 </ui:composition>
 
