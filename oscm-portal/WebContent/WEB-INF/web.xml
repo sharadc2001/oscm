@@ -80,6 +80,14 @@
     <param-name>org.richfaces.resourceOptimization.enabled</param-name>
     <param-value>false</param-value>
   </context-param>
+  <context-param>
+    <param-name>com.sun.faces.defaultResourceMaxAge</param-name>
+    <param-value>2592000000</param-value> <!-- 30 days -->
+  </context-param>
+  <context-param>
+    <param-name>org.apache.myfaces.RESOURCE_MAX_TIME_EXPIRES</param-name>
+    <param-value>2592000000</param-value> <!-- 30 days -->
+  </context-param>
 
   <!-- SERVLETS -->
   <servlet>
